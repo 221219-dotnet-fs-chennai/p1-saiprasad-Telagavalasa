@@ -33,42 +33,52 @@ namespace UI_Console
                 Console.WriteLine("==-=-=-=-=-=-=-=-=-=-=-=-=-Welcome To Find Trainer Online=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-");
                 Console.WriteLine("Enter 1 to Sign_Up");
                 Console.WriteLine("Enter 2 to Sign_In");
-                 Console.WriteLine("Enter 3 to Exit   ");
+                Console.WriteLine("Enter 3 to Exit   ");
                 Console.WriteLine(" ");
-
-
-                Console.Write("Enter Your Choice : ");
-                int ans = Convert.ToInt32(Console.ReadLine());
-
-                switch (ans)
+                try
                 {
-                    case 1:
-                        Log.Logger.Information("----User Able to create Account----");
-                        s.NewAddTrainer();
-                        //U.Display();
-                        break;
-                    case 2:
-                        Log.Logger.Information("----User trying to login into application----");
-                        t = L.IsAccountExists();
-                        M.UserChoice(t);
-                      break;
-                    case 3:
-                        repeat = false;
-                        //U.AddDetails(t);
-                        break;
-                  
 
+                    Console.Write("Enter Your Choice : ");
+                    int ans = Convert.ToInt32(Console.ReadLine());
+
+
+
+                    switch (ans)
+                    {
+                        case 1:
+                            Log.Logger.Information("----User Able to create Account----");
+                            s.NewAddTrainer();
+                            //U.Display();
+                            break;
+                        case 2:
+                            Log.Logger.Information("----User trying to login into application----");
+                            t = L.IsAccountExists();
+                            M.UserChoice(t);
+                            break;
+                        case 3:
+                            repeat = false;
+                            //U.AddDetails(t);
+                            break;
+
+
+                    }
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine(ex.Message);
                 }
 
+                Log.Logger.Information("----Program Ends----");
             }
-            Log.Logger.Information("----Program Ends----");
+         }   
+           // Log.Logger.Information("----Program Ends----");
 
 
-        }
+     }
 
-    }
+ }
 
-}
+
 
 
 

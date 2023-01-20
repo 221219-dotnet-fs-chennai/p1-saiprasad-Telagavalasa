@@ -34,39 +34,43 @@ namespace UI_Console
                 Console.WriteLine("Enter 3 to Delete skills");
                 Console.WriteLine("Enter 4 to Display skills");
                 Console.WriteLine("Enter 0 to exit");
-                Console.WriteLine("Enter your choice");
-                int ans = Convert.ToInt32(Console.ReadLine());
-
-                switch (ans)
+                try
                 {
-                    case 1:
-                       
-                        AddSkills(id);
-                        //Adding skills
+                    Console.WriteLine("Enter your choice");
+                    int ans = Convert.ToInt32(Console.ReadLine());
 
-                        break;
-                    case 2:
-                        ModifySkill(id);
-                        //modify skills;
-                        break;
-                    case 3:
-                        DeleteSkill(id);
+                    switch (ans)
+                    {
+                        case 1:
 
-                        //delete;
-                        break;
-                    case 4:
-                        Console.WriteLine(DisplaySkills(s).ToString());
-                        //display
-                        break;
-                    case 0:
-                        repeat = false;
-                        
-                        break;
+                            AddSkills(id);
+                            //Adding skills
+
+                            break;
+                        case 2:
+                            ModifySkill(id);
+                            //modify skills;
+                            break;
+                        case 3:
+                            DeleteSkill(id);
+
+                            //delete;
+                            break;
+                        case 4:
+                            Console.WriteLine(DisplaySkills(s).ToString());
+                            //display
+                            break;
+                        case 0:
+                            repeat = false;
+
+                            break;
 
 
 
 
+                    }
                 }
+                catch(Exception ex) { Console.WriteLine(ex.Message); }
             }
         }
         public void AddSkills(int id)

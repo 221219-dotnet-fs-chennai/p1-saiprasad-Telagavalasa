@@ -39,42 +39,46 @@ namespace UI_Console
                 Console.WriteLine("Enter 3 to Delete Trainer");
                 Console.WriteLine("Enter 4 to Display Trainer");
                 Console.WriteLine("Enter 0 to exit");
-                Console.WriteLine("Enter your choice");
-                int ans = Convert.ToInt32(Console.ReadLine());
-
-
-
-
-                switch (ans)
+                try
                 {
-                    case 1:
-                        AddDetails(t);
-                        //repeat = false;
-                        break;
-                    case 2:
-                        ModifyData(t);
-                        //updatedetails;
-                        break;
-                    case 3:
-                        DeleteTrainer(t);
-                        //delete;
-                        break;
-                    case 4:
-                        Console.WriteLine("      ");
-                        Console.WriteLine("----------------- Trainer Details :----------");
-                        Console.WriteLine(DisplayTrainerData(t).ToString());
-                        Console.WriteLine("");
-                        //display
-                        break;
-                    case 0:
-                        repeat = false;
-                        break;
+                    Console.WriteLine("Enter your choice");
+                    int ans = Convert.ToInt32(Console.ReadLine());
+
+
+
+
+                    switch (ans)
+                    {
+                        case 1:
+                            AddDetails(t);
+                            //repeat = false;
+                            break;
+                        case 2:
+                            ModifyData(t);
+                            //updatedetails;
+                            break;
+                        case 3:
+                            DeleteTrainer(t);
+                            //delete;
+                            break;
+                        case 4:
+                            Console.WriteLine("      ");
+                            Console.WriteLine("----------------- Trainer Details :----------");
+                            Console.WriteLine(DisplayTrainerData(t).ToString());
+                            Console.WriteLine("");
+                            //display
+                            break;
+                        case 0:
+                            repeat = false;
+                            break;
 
 
 
 
 
+                    }
                 }
+                catch(Exception ex) { Console.WriteLine(ex.Message); }
             }
         }
         public Trainer AddDetails(Trainer t)
@@ -124,20 +128,27 @@ namespace UI_Console
             using SqlCommand command = new SqlCommand(query, con);
             // execute it
             using SqlDataReader reader = command.ExecuteReader();
-            // process the output
-            while (reader.Read())
+            try
             {
+                // process the output
+                while (reader.Read())
+                {
 
-                t.User_ID = reader.GetInt32(0);
-                t.Email = reader.GetString(1);
-                t.Password = reader.GetString(2);
-                t.Name = reader.GetString(3);
-                t.Age = reader.GetByte(4);
-                t.Gender = reader.GetString(5);
-                t.Phone_Number = reader.GetInt64(6);
-                t.City = reader.GetString(7);
-                t.zipcode = reader.GetString(8);
+                    t.User_ID = reader.GetInt32(0);
+                    t.Email = reader.GetString(1);
+                    t.Password = reader.GetString(2);
+                    t.Name = reader.GetString(3);
+                    t.Age = reader.GetByte(4);
+                    t.Gender = reader.GetString(5);
+                    t.Phone_Number = reader.GetInt64(6);
+                    t.City = reader.GetString(7);
+                    t.zipcode = reader.GetString(8);
 
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
             }
             con.Close();
             return t;

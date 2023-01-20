@@ -32,35 +32,39 @@ namespace TrainersData
                 Console.WriteLine("Enter 3 to Delete Education Detais");
                 Console.WriteLine("Enter 4 to Display Education Details");
                 Console.WriteLine("Enter 0 to exit");
-                Console.WriteLine("Enter your choice");
-                int ans = Convert.ToInt32(Console.ReadLine());
-
-                switch (ans)
+                try
                 {
-                    case 1:
-                        AddEducation(id);
-                        //Adding education details
-                        break;
-                    case 2:
-                        ModifyEducation(id);
-                        //modify education details;
-                        break;
-                    case 3:
-                        DeleteEducation(id);
-                        //delete the education details;
-                        break;
-                    case 4:
-                        Console.WriteLine(DisplayEducation(e).ToString());
-                        //display
-                        break;
-                    case 0:
-                        repeat = false;
-                        break;
+                    Console.WriteLine("Enter your choice");
+                    int ans = Convert.ToInt32(Console.ReadLine());
+
+                    switch (ans)
+                    {
+                        case 1:
+                            AddEducation(id);
+                            //Adding education details
+                            break;
+                        case 2:
+                            ModifyEducation(id);
+                            //modify education details;
+                            break;
+                        case 3:
+                            DeleteEducation(id);
+                            //delete the education details;
+                            break;
+                        case 4:
+                            Console.WriteLine(DisplayEducation(e).ToString());
+                            //display
+                            break;
+                        case 0:
+                            repeat = false;
+                            break;
 
 
 
 
+                    }
                 }
+                catch(Exception ex) { Console.WriteLine(ex.Message); }
             }
         }
 
@@ -93,12 +97,17 @@ namespace TrainersData
             using SqlCommand command = new SqlCommand(query, con);
             // execute it
             using SqlDataReader reader = command.ExecuteReader();
-            // process the output
-            while (reader.Read())
+            try
             {
-                //e.Edu_ID = reader.GetInt32(1);
-                e.Degree = reader.GetString(1);
-                e.Institution = reader.GetString(2);
+                // process the output
+                while (reader.Read())
+                {
+                    //e.Edu_ID = reader.GetInt32(1);
+                    e.Degree = reader.GetString(1);
+                    e.Institution = reader.GetString(2);
+                }
+            } catch (Exception ex){
+                Console.WriteLine(ex.Message);
             }
             con.Close();
             return id;

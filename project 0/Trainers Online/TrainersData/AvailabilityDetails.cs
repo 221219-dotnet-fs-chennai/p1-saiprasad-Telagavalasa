@@ -30,38 +30,42 @@ namespace TrainersData
                 Console.WriteLine("Enter 2 to upadte Availability Details");
                 Console.WriteLine("Enter 3 to Delete Availablity Detais");
                 Console.WriteLine("Enter 4 to Display Availability Details");
-                Console.WriteLine("Enter 0 to exit");
-                Console.WriteLine("Enter your choice");
-
-                int ans = int.Parse(Console.ReadLine());
-
-                switch (ans)
+                try
                 {
-                    case 1:
-                        AddAvailability(id);
-                        //Adding Avaliability details
-                        break;
-                    case 2:
-                        ModifyAvailabiity(id);
-                        //modify Avaliability details;
-                        break;
-                    case 3:
-                        DeleteAvailability(id);
-                        //delete the  Avaliability details;
-                        break;
-                    case 4:
-                        Console.WriteLine(DisplayAvailability(a).ToString());
-                      
-                        //display
-                        break;
-                    case 0:
-                        repeat = false;
-                        break;
+                    Console.WriteLine("Enter 0 to exit");
+                    Console.WriteLine("Enter your choice");
+
+                    int ans = int.Parse(Console.ReadLine());
+
+                    switch (ans)
+                    {
+                        case 1:
+                            AddAvailability(id);
+                            //Adding Avaliability details
+                            break;
+                        case 2:
+                            ModifyAvailabiity(id);
+                            //modify Avaliability details;
+                            break;
+                        case 3:
+                            DeleteAvailability(id);
+                            //delete the  Avaliability details;
+                            break;
+                        case 4:
+                            Console.WriteLine(DisplayAvailability(a).ToString());
+
+                            //display
+                            break;
+                        case 0:
+                            repeat = false;
+                            break;
 
 
 
 
+                    }
                 }
+                catch(Exception ex) { Console.WriteLine(ex.Message); }
             }
 
 
@@ -100,13 +104,20 @@ namespace TrainersData
             using SqlCommand command = new SqlCommand(query, con);
             // execute it
             using SqlDataReader reader = command.ExecuteReader();
-            // process the output
-            while (reader.Read())
+            try
             {
-                a.Day = reader.GetString(1);
-                a.StartTime = reader.GetString(2);
-                a.EndTime = reader.GetString(3);
-                a.HourlyRate = reader.GetString(4);
+                // process the output
+                while (reader.Read())
+                {
+                    a.Day = reader.GetString(1);
+                    a.StartTime = reader.GetString(2);
+                    a.EndTime = reader.GetString(3);
+                    a.HourlyRate = reader.GetString(4);
+                }
+            }
+            catch(Exception ex)
+            {
+                Console.WriteLine(ex.Message);
             }
             con.Close();
             return id;

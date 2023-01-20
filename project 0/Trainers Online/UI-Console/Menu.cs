@@ -54,66 +54,72 @@ namespace UI_Console
                 Console.WriteLine("[5] to view Trainer Avaialabiity");
                 Console.WriteLine("[6] to view Entire Trainer Profile");
                 Console.WriteLine("[0] Exit");
-
-                Console.WriteLine("Enter your choice :");
-                int userInput = Convert.ToInt32(Console.ReadLine());
-
-                //Switch cases are just useful if you are doing a bunch of comparison
-                switch (userInput)
+                try
                 {
-                    case 0:
-                        repeat = false;
-                        return "Program";
-                        
-                    case 1:
-                        Log.Logger.Information("----User able to view Trainer details----");
-                        T.Display(t);
-                        break;
+                    Console.WriteLine("Enter your choice :");
+                    int userInput = Convert.ToInt32(Console.ReadLine());
 
-                    case 2:
-                        Log.Logger.Information("----User able to view Skill details----");
-                        S.Display1(id);
-                        break;
-                    case 3:
-                        Log.Logger.Information("----User able to view Company details----");
-                        E.Display2(id);
+                    //Switch cases are just useful if you are doing a bunch of comparison
+                    switch (userInput)
+                    {
+                        case 0:
+                            repeat = false;
+                            return "Program";
 
-                        break;
-                    case 4:
-                        Log.Logger.Information("----User able to view Education details----");
-                        C.Display3(id);
-                        break;
-                    case 5:
-                        Log.Logger.Information("----User able to view Availability details----");
-                        A.Display4(id);
-                        break;
-                    case 6:
-                        Console.WriteLine("");
-                        Console.WriteLine("----------------- Trainer Details :-----------------------");
-                        Console.WriteLine(T.DisplayTrainerData(t).ToString());
-                        Console.WriteLine("");
-                        Console.WriteLine("----------------Skills :------------------------------------");
-                        s.Skill_ID = id;
-                        Console.WriteLine((S.DisplaySkills(s)).ToString());
-                        Console.WriteLine();
-                        Console.WriteLine("");
-                        Console.WriteLine("----------------- Company :----------------------------------");
-                        c.Cmp_ID = id;
-                        Console.WriteLine(C.DisplayCompany(c).ToString());
-                        Console.WriteLine("");
-                        Console.WriteLine("-------------------Education:----------------------------------");
-                        e.Edu_ID = id;
-                        Console.WriteLine(E.DisplayEducation(e).ToString());
-                        Console.WriteLine("");
-                        Console.WriteLine("------------------- Avaliability:----------------------------------");
-                        a.Ava_ID = id;
-                        Console.WriteLine(A.DisplayAvailability(a).ToString());
-                        Console.WriteLine("");
-                        Console.WriteLine("==-=-=-=-=-=-=-=-=More Functionality Are Going To Add Please do Visit Again [THANK YOU]=--=-=-=-=-=-=-=-=-=-=-=-=-");
-                        Console.ReadKey();
-                        break;
+                        case 1:
+                            Log.Logger.Information("----User able to view Trainer details----");
+                            T.Display(t);
+                            break;
+
+                        case 2:
+                            Log.Logger.Information("----User able to view Skill details----");
+                            S.Display1(id);
+                            break;
+                        case 3:
+                            Log.Logger.Information("----User able to view Company details----");
+                            E.Display2(id);
+
+                            break;
+                        case 4:
+                            Log.Logger.Information("----User able to view Education details----");
+                            C.Display3(id);
+                            break;
+                        case 5:
+                            Log.Logger.Information("----User able to view Availability details----");
+                            A.Display4(id);
+                            break;
+                        case 6:
+                            Console.WriteLine("");
+                            Console.WriteLine("----------------- Trainer Details :-----------------------");
+                            Console.WriteLine(T.DisplayTrainerData(t).ToString());
+                            Console.WriteLine("");
+                            Console.WriteLine("----------------Skills :------------------------------------");
+                            s.Skill_ID = id;
+                            Console.WriteLine((S.DisplaySkills(s)).ToString());
+                            Console.WriteLine();
+                            Console.WriteLine("");
+                            Console.WriteLine("----------------- Company :----------------------------------");
+                            c.Cmp_ID = id;
+                            Console.WriteLine(C.DisplayCompany(c).ToString());
+                            Console.WriteLine("");
+                            Console.WriteLine("-------------------Education:----------------------------------");
+                            e.Edu_ID = id;
+                            Console.WriteLine(E.DisplayEducation(e).ToString());
+                            Console.WriteLine("");
+                            Console.WriteLine("------------------- Avaliability:----------------------------------");
+                            a.Ava_ID = id;
+                            Console.WriteLine(A.DisplayAvailability(a).ToString());
+                            Console.WriteLine("");
+                            Console.WriteLine("==-=-=-=-=-=-=-=-=More Functionality Are Going To Add Please do Visit Again [THANK YOU]=--=-=-=-=-=-=-=-=-=-=-=-=-");
+                            Console.ReadKey();
+                            break;
 
 
+                    }
+                }
+                  catch(Exception ex)
+                {
+                    Console.WriteLine(ex.Message);
                 }
             }
         }

@@ -29,35 +29,39 @@ namespace TrainersData
                 Console.WriteLine("Enter 3 to Delete Company Detais");
                 Console.WriteLine("Enter 4 to Display Company Details");
                 Console.WriteLine("Enter 0 to exit");
-                Console.WriteLine("Enter your choice");
-                int ans = Convert.ToInt32(Console.ReadLine());
-
-                switch (ans)
+                try
                 {
-                    case 1:
-                        AddCompany(id);
-                        //Adding Company details
-                        break;
-                    case 2:
-                        ModifyCompany(id);
-                        //modify Company details;
-                        break;
-                    case 3:
-                        DeleteCompany(id);
-                        //delete the Company details;
-                        break;
-                    case 4:
-                        Console.WriteLine(DisplayCompany(c).ToString());
-                        //display
-                        break;
-                    case 0:
-                        repeat = false;
-                        break;
+                    Console.WriteLine("Enter your choice");
+                    int ans = Convert.ToInt32(Console.ReadLine());
+
+                    switch (ans)
+                    {
+                        case 1:
+                            AddCompany(id);
+                            //Adding Company details
+                            break;
+                        case 2:
+                            ModifyCompany(id);
+                            //modify Company details;
+                            break;
+                        case 3:
+                            DeleteCompany(id);
+                            //delete the Company details;
+                            break;
+                        case 4:
+                            Console.WriteLine(DisplayCompany(c).ToString());
+                            //display
+                            break;
+                        case 0:
+                            repeat = false;
+                            break;
 
 
 
 
+                    }
                 }
+                catch(Exception ex) { Console.WriteLine(ex.Message); }
             }
         }
         public void AddCompany(int id)
@@ -90,12 +94,18 @@ namespace TrainersData
             using SqlCommand command = new SqlCommand(query, con);
             // execute it
             using SqlDataReader reader = command.ExecuteReader();
-            // process the output
-            while (reader.Read())
+            try
             {
-                c.Company_Name = reader.GetString(1);
-                c.Field = reader.GetString(2);
-                c.Experience = reader.GetString(3);
+                // process the output
+                while (reader.Read())
+                {
+                    c.Company_Name = reader.GetString(1);
+                    c.Field = reader.GetString(2);
+                    c.Experience = reader.GetString(3);
+                }
+            }
+            catch(Exception ex) {
+                Console.WriteLine(ex.Message);
             }
             con.Close();
             return id;
