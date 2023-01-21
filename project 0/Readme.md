@@ -2,9 +2,9 @@
                     
 
 ## PROJECT TITLE : To Find A Trainer Online
-``` text
+
 Agenda is to create an application to add professional trainers data in a database and these trainers are able to upload their profiles, so that vendors and client can reach out to them to offer business as well get their team trained on required skill sets.
-```
+
 
 --------------------------------------------------------------------------------------------------------------------------------------
 ## Technology stack
@@ -45,8 +45,9 @@ For Sign Up,if it will be a registered Email ID show Email is already Exist plea
 ```
 --------------------------------------------------------------------------------------------------------------------------------------
 
-## Future Enhancements
-``` text
+## Future Enhancement
+
+
 The extension of the project is going to add some filters using concept LINQ where user can able to find trainer based on Name , City etc.. & can able to find which  trainers are availabile on that particular day.
 
 
