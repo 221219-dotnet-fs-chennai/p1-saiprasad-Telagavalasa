@@ -30,24 +30,24 @@ namespace TrainersData
         public string Name { get; set; }
         public byte Age { get; set; }
         public string Gender { get; set; }
-        public long Phone_Number { get; set; }
-    //   public long Phone_Number
-    //    {
-    //       get
-    //        {
-    //            return phone_Number;
-    //        }
+         public long Phone_Number { get; set; }
+        //   public long Phone_Number
+        //    {
+        //       get
+        //        {
+        //            return phone_Number;
+        //        }
 
-    //set
-    //        {
-    //            string pattern = @"[6-9]\d{9}";
-    //var IsPhoneCorrect = Regex.IsMatch(value, pattern);
-    //            if (IsPhoneCorrect)
-    //                phone_Number = value;
-    //            else
-    //                Console.WriteLine("Please add a valid mobile phone with 10 digits only");
-    //        }
-    //    }
+        //set
+        //        {
+        //            string pattern = @"[6-9]\d{9}";
+        //var IsPhoneCorrect = Regex.IsMatch(value, pattern);
+        //            if (IsPhoneCorrect)
+        //                phone_Number = value;
+        //            else
+        //                Console.WriteLine("Please add a valid mobile phone with 10 digits only");
+        //        }
+        //    }
         public string City { get; set; }
        // public string ZipCode { get; set; }
         public string ZipCode
