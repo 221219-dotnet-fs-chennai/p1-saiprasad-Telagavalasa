@@ -10,12 +10,20 @@ namespace UI_Console
 {
     public class TrainerOp
     {
+        
         Trainers t = new Trainers();
         ILogic l = new Logic();
-        public Trainers AddMoreTrainer( Trainers t)
+        Validation v= new Validation();
+        int id;
+       
+
+        
+       public Trainers AddMoreTrainer( Trainers t)
         {
+             t.Trainer_ID = v.TrainerIdByEmail(t);
+
             //Trainers t = new Trainers();
-           // Console.WriteLine("\n==========Welcome===========\n");
+            // Console.WriteLine("\n==========Welcome===========\n");
             Console.WriteLine("Enter your Age : ");
             t.Age = Convert.ToInt32(Console.ReadLine());
             Console.WriteLine("Enter your gender: ");
@@ -27,6 +35,7 @@ namespace UI_Console
             Console.WriteLine("Enter your Zipcode : ");
             t.zipcode = Console.ReadLine();
             l.AddTrainer(t);
+           
             // l.AddTrainerSignup(t);
 
             return t;

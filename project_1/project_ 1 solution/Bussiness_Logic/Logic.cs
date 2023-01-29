@@ -11,15 +11,30 @@ namespace Bussiness_Logic
         ITrainer<Trainer> repo;
         public Logic() 
         {
-            repo=new EFRepo();
+            repo=new FluentApi.Entities.EFRepo();
         }
 
         public void AddTrainer(Trainers t)
         {
-            
-           
             repo.AddTrainer(Mapper.MapAddTrainer(t));
+            var trainer = context.Trainers.Where(item => item.TrainerId == t.Trainer_ID).First();
+            if (trainer != null)
+            {
+
+                trainer.Age = (byte?)t.Age;
+                trainer.Gender = t.Gender;
+                trainer.PhoneNumber = t.Phone_Number;
+                trainer.City = t.City;
+                trainer.Zipcode = t.zipcode;
+                context.Update(trainer);
+                context.SaveChanges();
+               
+            }
+            
         }
+
+
+        
 
        
 

@@ -31,8 +31,8 @@ public static class Program
             Console.WriteLine("Enter 2 to Sign_In");
             Console.WriteLine("Enter 3 to Exit   ");
             Console.WriteLine(" ");
-            try
-            {
+            
+            
 
                 Console.Write("Enter Your Choice : ");
                 int ans = Convert.ToInt32(Console.ReadLine());
@@ -63,12 +63,8 @@ public static class Program
 
                 }
             }
-            catch (Exception ex)
-            {
-                Console.WriteLine(ex.Message);
-            }
+           
 
 
         }
     }
-}

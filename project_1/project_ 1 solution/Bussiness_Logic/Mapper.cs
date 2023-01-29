@@ -48,7 +48,7 @@ namespace Bussiness_Logic
             return new FluentApi.Entities.Trainer()
             {
 
-               
+              // TrainerId=t.Trainer_ID,
                 Age = (byte?)t.Age,
                 Gender=t.Gender,
                 PhoneNumber=t.Phone_Number,

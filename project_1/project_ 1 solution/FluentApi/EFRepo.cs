@@ -2,6 +2,7 @@
 using FluentApi.Entities;
 using Models;
 
+
 namespace FluentApi.Entities
 {
     public class EFRepo : ITrainer<Trainer>
@@ -30,7 +31,7 @@ namespace FluentApi.Entities
         {
             return trainer;
         }
-       // public Models.Trainers AddTrainerSignup(Models.Trainers trainer)
+        // public Models.Trainers AddTrainerSignup(Models.Trainers trainer)
         //{
         //    context.Trainers.Add(t);
         //    context.SaveChanges();
@@ -39,21 +40,31 @@ namespace FluentApi.Entities
 
         //}
 
-        public void  AddTrainerSignup(Trainer t)
+        public void AddTrainerSignup(Trainer t)
         {
             context.Trainers.Add(t);
             context.SaveChanges();
-            
-           
+
+
         }
 
         public void AddTrainer(Trainer t)
         {
-            context.Trainers.Add(t);
-            context.SaveChanges();
+            //var trainer = context.Trainers.Where(item => item.TrainerId == t.TrainerId).First();
+            //if (trainer != null)
+            //{
+
+            //    trainer.Age = (byte?)t.Age;
+            //    trainer.Gender = t.Gender;
+            //    trainer.PhoneNumber = t.PhoneNumber;
+            //    trainer.City = t.City;
+            //    trainer.Zipcode = t.Zipcode;
+              // context.Update(t);
+               // context.SaveChanges();
+            
         }
     }
-    }
+}
 
         
     

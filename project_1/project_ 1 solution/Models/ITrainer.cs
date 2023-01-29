@@ -14,7 +14,7 @@ namespace Models
         List<T> DisplayTrainer();
         //  T Add(T t);
        void AddTrainerSignup(T trainer);
-        void AddTrainer(T trainer);
+        void AddTrainer(T t);
   
     }   
 }

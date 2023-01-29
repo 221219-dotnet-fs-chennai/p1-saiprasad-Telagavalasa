@@ -25,24 +25,21 @@ namespace Bussiness_Logic
           
             return false;
         }
-       // public static int GetTrainerIdByEmail(string email)
-        //{
-        //    try
-        //    {
-        //        int id = 0;
-        //        var t = context.TrainerDetails.Where(item => item.Email == email).First();
-        //        if (t.Email == email)
-        //        {
-        //            id = t.Trainerid;
-        //        }
-        //        return id;
-        //    }
-        //    catch (InvalidOperationException e)
-        //    {
-        //        Console.WriteLine("");
-        //    }
-        //    return 0;
-        //}
+        public  int TrainerIdByEmail(Models.Trainers t)
+        {
+           
+            
+                int id = 0;
+                var ans = context.Trainers.Where(item => item.Email==t.Email).First();
+                if (ans.Email == t.Email)
+                {
+                    id = ans.TrainerId;
+                }
+                return id;
+            
+           
+           
+        }
     }
     }
 

@@ -13,6 +13,6 @@ namespace Bussiness_Logic
         IEnumerable<Trainers> DisplayTrainer();
         // void TrainerSignUp(FluentApi.Entities.Trainer t);
         void AddTrainerSignup(Trainers t);
-        void AddTrainer(Trainers t);
+        void AddTrainer(Trainers id);
     }
 }
