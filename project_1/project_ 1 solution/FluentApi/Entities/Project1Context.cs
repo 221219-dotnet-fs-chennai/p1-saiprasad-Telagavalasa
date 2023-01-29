@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using Microsoft.EntityFrameworkCore;
 
-namespace Fluent_Api.Entities;
+namespace FluentApi.Entities;
 
 public partial class Project1Context : DbContext
 {
@@ -105,6 +105,8 @@ public partial class Project1Context : DbContext
         {
             entity.HasKey(e => e.SkillId).HasName("PK__Skills__83B344702BED5FA3");
 
+            entity.ToTable("Skill");
+
             entity.Property(e => e.SkillId).HasColumnName("Skill-Id");
             entity.Property(e => e.Proficiency)
                 .HasMaxLength(15)
@@ -125,6 +127,8 @@ public partial class Project1Context : DbContext
         modelBuilder.Entity<Trainer>(entity =>
         {
             entity.HasKey(e => e.TrainerId).HasName("PK__Trainers__8B0EB9313FEA02D9");
+
+            entity.ToTable("Trainer");
 
             entity.Property(e => e.TrainerId).HasColumnName("Trainer_ID");
             entity.Property(e => e.City)

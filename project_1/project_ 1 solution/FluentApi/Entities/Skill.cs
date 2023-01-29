@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace Fluent_Api.Entities;
+namespace FluentApi.Entities;
 
 public partial class Skill
 {
