@@ -18,7 +18,7 @@ public static class Program
         TrainerOp to=new TrainerOp();
         Signup signup= new Signup();
         Login login=new Login();
-        Trainers t = new Trainers();
+        Models.Trainer t = new Models.Trainer();
         EFRepo ef = new EFRepo();
         ILogic L = new Logic();
         bool repeat = true;
@@ -48,7 +48,8 @@ public static class Program
                         break;
                     case 2:
                         t=login.IsAccountExists();
-                        to.AddMoreTrainer(t);
+                        to.removeTrainer(t);
+                   
 
                         //m.UserChoice(t);
                         //Log.Logger.Information("----User trying to login into application----");
@@ -56,7 +57,7 @@ public static class Program
                         //M.UserChoice(t);
                         break;
                     case 3:
-                        repeat = false;
+                       // l.RemoveTrainerByName(t.Name);
                         //U.AddDetails(t);
                         break;
 

@@ -13,9 +13,9 @@ namespace Bussiness_Logic
     public class Mapper
     {
          private static Project1Context context=new Project1Context();
-        public static Models.Trainers Map(FluentApi.Entities.Trainer t)
+        public static Models.Trainer Map(FluentApi.Entities.Trainer t)
         {
-            return new Models.Trainers()
+            return new Models.Trainer()
             {
 
                 Email = t.Email,
@@ -29,33 +29,26 @@ namespace Bussiness_Logic
             };
         }
 
-        public static IEnumerable<Models.Trainers> Map(IEnumerable<FluentApi.Entities.Trainer> trainers)
+        public static IEnumerable<Models.Trainer> Map(IEnumerable<FluentApi.Entities.Trainer> trainers)
         {
             return trainers.Select(Map);
         }
-        public static FluentApi.Entities.Trainer MapTrainerSignup(Models.Trainers t)
+
+
+        public static FluentApi.Entities.Trainer Map(Models.Trainer t)
         {
             return new FluentApi.Entities.Trainer()
             {
+
                 Email = t.Email,
-                Password = t.Password,
-                Name =t.Name
+                Name = t.Name,
+                Age = (byte)t.Age,
+                Gender = t.Gender,
+                PhoneNumber = t.Phone_Number,
+                City = t.City,
+                Zipcode = t.zipcode
+
             };
-
-        }
-        public static FluentApi.Entities.Trainer MapAddTrainer(Models.Trainers t)
-        {
-            return new FluentApi.Entities.Trainer()
-            {
-
-              // TrainerId=t.Trainer_ID,
-                Age = (byte?)t.Age,
-                Gender=t.Gender,
-                PhoneNumber=t.Phone_Number,
-                City=t.City,
-                Zipcode=t.zipcode
-            };
-
         }
     }
 }

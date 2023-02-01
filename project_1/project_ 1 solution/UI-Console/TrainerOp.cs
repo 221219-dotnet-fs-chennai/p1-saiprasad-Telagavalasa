@@ -11,14 +11,14 @@ namespace UI_Console
     public class TrainerOp
     {
         
-        Trainers t = new Trainers();
+        Trainer t = new Trainer();
         ILogic l = new Logic();
         Validation v= new Validation();
         int id;
        
 
         
-       public Trainers AddMoreTrainer( Trainers t)
+       /*public Trainer AddMoreTrainer( Trainer t)
         {
              t.Trainer_ID = v.TrainerIdByEmail(t);
 
@@ -39,6 +39,12 @@ namespace UI_Console
             // l.AddTrainerSignup(t);
 
             return t;
+        }*/
+
+        public void  removeTrainer(Trainer t)
+        {
+            l.RemoveTrainerByName(t);
+
         }
     }
 }

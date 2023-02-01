@@ -12,14 +12,14 @@ namespace UI_Console
     public class Signup
     {
         //Project1Context context = new Project1Context();
-       // private static FluentApi.Entities.Trainer trainer = new();
-       // private static ILogic l = new Logic();
-       // Trainer t = new Trainer();
+        // private static FluentApi.Entities.Trainer trainer = new();
+        // private static ILogic l = new Logic();
+        // Trainer t = new Trainer();
         //EFRepo ef = new EFRepo();
-        Trainers t = new Trainers();
+        Models.Trainer t = new Models.Trainer();
         ILogic l = new Logic();
 
-        public Trainers NewAddTrainer()
+        public Models.Trainer NewAddTrainer()
         {
             //Trainers t = new Trainers();
             Console.WriteLine("\n==========Welcome===========\n");

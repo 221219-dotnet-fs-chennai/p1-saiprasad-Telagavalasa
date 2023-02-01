@@ -5,18 +5,57 @@ using Microsoft.EntityFrameworkCore;
 
 namespace Bussiness_Logic
 {
-    public class Logic:ILogic
+    public class Logic : ILogic
     {
-        private static Project1Context context =new Project1Context();
-        ITrainer<Trainer> repo;
-        public Logic() 
+        private static Project1Context context = new Project1Context();
+        IRepo<FluentApi.Entities.Trainer> repo;
+        public Logic()
         {
-            repo=new FluentApi.Entities.EFRepo();
+            repo = new FluentApi.Entities.EFRepo();
         }
 
-        public void AddTrainer(Trainers t)
+        //public FluentApi.Entities.Trainer AddTrainer(Models.Trainer t)
+        //{
+        // repo.AddTrainer(Mapper.MapAddTrainer(t));
+        //var trainer = context.Trainers.Where(item => item.TrainerId == t.Trainer_ID).First();
+        //if (trainer != null)
+        //{
+
+        //    trainer.Age = (byte?)t.Age;
+        //    trainer.Gender = t.Gender;
+        //    trainer.PhoneNumber = t.Phone_Number;
+        //    trainer.City = t.City;
+        //    trainer.Zipcode = t.zipcode;
+        //    context.Update(trainer);
+
+        //    //trainer = repo.AddTrainer(trainer);
+        //   // context.SaveChanges();
+
+        //}
+        //return Mapper.MapTrainerSignup(trainer);
+
+        // }
+
+
+
+
+
+
+        public void AddTrainerSignup(Models.Trainer t)
         {
-            repo.AddTrainer(Mapper.MapAddTrainer(t));
+            //Trainer trainer = ;
+            repo.AddTrainerSignup(Mapper.Map(t));
+            //throw new NotImplementedException();
+        }
+
+        public IEnumerable<Models.Trainer> DisplayTrainer()
+        {
+            return Mapper.Map(repo.DisplayTrainer());
+
+        }
+
+        public void AddTrainer(Models.Trainer t)
+        {
             var trainer = context.Trainers.Where(item => item.TrainerId == t.Trainer_ID).First();
             if (trainer != null)
             {
@@ -26,38 +65,31 @@ namespace Bussiness_Logic
                 trainer.PhoneNumber = t.Phone_Number;
                 trainer.City = t.City;
                 trainer.Zipcode = t.zipcode;
-                context.Update(trainer);
-                context.SaveChanges();
-               
+                //context.Update(trainer);
+
+                repo.AddTrainer(trainer);
+                // context.SaveChanges();
+
             }
-            
+
+            // return Mapper.MapAddTrainer(trainer);
         }
-
-
-        
-
-       
-
-        public void AddTrainerSignup(Trainers t)
+        public Models.Trainer RemoveTrainerByName(Models.Trainer t)
         {
-            //Trainer trainer = ;
-            repo.AddTrainerSignup(Mapper.MapTrainerSignup(t));
-            //throw new NotImplementedException();
+            var deletedTrainer = repo.RemoveTrainer(Mapper.Map(t));
+           
+                return Mapper.Map(deletedTrainer);
+          
+              
         }
 
-        public IEnumerable<Models.Trainers> DisplayTrainer()
-        {
-            return Mapper.Map(repo.DisplayTrainer());
-        }
 
-  
-
-        //public void TrainerSignUp(FluentApi.Entities.Trainer t)
-        //{
-        //    Mapper.MapTrainerSignUp(repo.Add(t));
-        //}
-       
-
-        
     }
 }
+
+
+
+
+
+
+    

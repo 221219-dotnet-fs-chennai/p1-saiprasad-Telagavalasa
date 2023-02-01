@@ -1,17 +1,18 @@
 ﻿
 using FluentApi.Entities;
+using Microsoft.EntityFrameworkCore;
 using Models;
 
 
 namespace FluentApi.Entities
 {
-    public class EFRepo : ITrainer<Trainer>
+    public class EFRepo : IRepo<Trainer>
 
     {
 
         Project1Context context = new Project1Context();
 
-        List<Trainer> ITrainer<Trainer>.DisplayTrainer()
+        List<Trainer> IRepo<Trainer>.DisplayTrainer()
         {
             return context.Trainers.ToList();
         }
@@ -19,52 +20,56 @@ namespace FluentApi.Entities
 
 
 
-        //public List<Trainer> AddTrainer(Models.Trainer trainer)
-        //{
-        //    context.Add(trainer);
-        //    context.SaveChanges();
-        //    return trainer;
-        //}
+      
 
 
         public Entities.Trainer Add(Entities.Trainer trainer)
         {
             return trainer;
         }
-        // public Models.Trainers AddTrainerSignup(Models.Trainers trainer)
-        //{
-        //    context.Trainers.Add(t);
-        //    context.SaveChanges();
-        //    return trainer;
+ 
 
 
-        //}
+     
 
-        public void AddTrainerSignup(Trainer t)
+        public void  AddTrainerSignup(Trainer t)
         {
             context.Trainers.Add(t);
-            context.SaveChanges();
-
+              context.SaveChanges();
+            
 
         }
 
-        public void AddTrainer(Trainer t)
+        public void AddTrainer(Entities.Trainer trainer)
         {
-            //var trainer = context.Trainers.Where(item => item.TrainerId == t.TrainerId).First();
-            //if (trainer != null)
-            //{
+            context.Trainers.Update(trainer);
+            context.SaveChanges();
+        }
 
-            //    trainer.Age = (byte?)t.Age;
-            //    trainer.Gender = t.Gender;
-            //    trainer.PhoneNumber = t.PhoneNumber;
-            //    trainer.City = t.City;
-            //    trainer.Zipcode = t.Zipcode;
-              // context.Update(t);
-               // context.SaveChanges();
-            
+        //public Entities.Trainer RemoveRestaurant(string name)
+        //{
+        //    var find = context.Trainers.Where(trainer => trainer.Name == name).FirstOrDefault();
+        //    if (find!= null)
+        //    {
+        //        context.Trainers.Remove(find);
+        //        context.SaveChanges();
+        //    }
+        //    return find;
+        //}
+
+        public Trainer RemoveTrainer(Entities.Trainer t)
+        {
+            var find = context.Trainers.Where(x => x.Email==t.Email).First();
+            if (find != null)
+            {
+                context.Trainers.Remove(find);
+                context.SaveChanges();
+            }
+            return find;
         }
     }
-}
+    }
+
 
         
     

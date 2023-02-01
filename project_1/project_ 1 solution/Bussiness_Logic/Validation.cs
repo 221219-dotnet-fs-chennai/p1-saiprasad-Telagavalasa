@@ -10,7 +10,7 @@ namespace Bussiness_Logic
     public  class Validation
     {
         private static Project1Context context = new Project1Context();
-        public static bool CheckTrainerExists(Models.Trainers t)
+        public static bool CheckTrainerExists(Models.Trainer t)
         {
             
                 var ans = context.Trainers.Where(item => item.Email == t.Email).First();
@@ -25,7 +25,7 @@ namespace Bussiness_Logic
           
             return false;
         }
-        public  int TrainerIdByEmail(Models.Trainers t)
+        public  int TrainerIdByEmail(Models.Trainer t)
         {
            
             

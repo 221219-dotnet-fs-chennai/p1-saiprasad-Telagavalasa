@@ -10,9 +10,10 @@ namespace Bussiness_Logic
 {
     public interface ILogic
     {
-        IEnumerable<Trainers> DisplayTrainer();
+        IEnumerable<Models.Trainer> DisplayTrainer();
         // void TrainerSignUp(FluentApi.Entities.Trainer t);
-        void AddTrainerSignup(Trainers t);
-        void AddTrainer(Trainers id);
+        void AddTrainerSignup(Models.Trainer t);
+        void  AddTrainer(Models.Trainer id);
+        Models.Trainer RemoveTrainerByName(Models.Trainer t);
     }
 }

@@ -12,9 +12,9 @@ namespace UI_Console
 {
     public  class Login
     {
-        Trainers t = new Trainers();
+        Models.Trainer t = new Models.Trainer();
         ILogic l = new Logic();
-        public Trainers IsAccountExists()
+        public Models.Trainer IsAccountExists()
         {
             reenter:
             Console.WriteLine("Enter your email:");
