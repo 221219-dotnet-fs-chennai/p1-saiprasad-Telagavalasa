@@ -25,11 +25,11 @@ namespace FluentApi.Entities
 
         }
 
-        public void AddTrainer(Entities.Trainer trainer)
-        {
-            context.Trainers.Update(trainer);
-            context.SaveChanges();
-        }
+        //public void AddTrainer(Entities.Trainer trainer)
+        //{
+        //    context.Trainers.Update(trainer);
+        //    context.SaveChanges();
+        //}
 
         public void UpdateTrainer(Entities.Trainer trainer)
         {
@@ -38,9 +38,9 @@ namespace FluentApi.Entities
         }
 
 
-        public Trainer RemoveTrainer(Entities.Trainer t)
+        public Trainer RemoveTrainer(string email)
         {
-            var find = context.Trainers.Where(x => x.Email==t.Email).First();
+            var find = context.Trainers.Where(x => x.Email==email).First();
             if (find != null)
             {
                 context.Trainers.Remove(find);

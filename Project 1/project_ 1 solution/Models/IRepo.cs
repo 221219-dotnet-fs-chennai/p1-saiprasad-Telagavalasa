@@ -14,8 +14,8 @@ namespace Models
         //  T Add(T t);
        void AddTrainerSignup(T trainer);
        
-         void AddTrainer(T trainer);
-        T RemoveTrainer(T trainer);
+         //void AddTrainer(T trainer);
+        T RemoveTrainer(string email);
         void UpdateTrainer(T trainer);
 
     }   

@@ -40,6 +40,21 @@ namespace Bussiness_Logic
            
            
         }
+        public int TrainerIdEmail(Models.Trainer t)
+        {
+
+
+            int id = 0;
+            var ans = context.Trainers.Where(item => item.Email == t.Email).First();
+            if (ans.Email == t.Email)
+            {
+                id = ans.TrainerId;
+            }
+            return id;
+
+
+
+        }
 
 
         public Skill getskillname(int id, string name)

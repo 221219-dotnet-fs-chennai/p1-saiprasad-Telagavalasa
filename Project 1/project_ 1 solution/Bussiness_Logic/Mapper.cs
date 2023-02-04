@@ -17,7 +17,7 @@ namespace Bussiness_Logic
         {
             return new Models.Trainer()
             {
-               
+              // TrainerId=t.TrainerId,
                 Email = t.Email,
                 Password=t.Password,
                 Name = t.Name,
@@ -40,7 +40,7 @@ namespace Bussiness_Logic
         {
             return new FluentApi.Entities.Trainer()
             {
-
+                //TrainerId=t.TrainerId,
                 Email = t.Email,
                 Password = t.Password,
                 Name = t.Name,

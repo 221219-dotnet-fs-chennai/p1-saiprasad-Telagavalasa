@@ -35,7 +35,7 @@ namespace ServiceLayer.Controllers
             }
         }
         [HttpPost("AddSignUp")] // Trying to create a resource on the server
-         public ActionResult AddSignup([FromBody] Trainer t)
+         public ActionResult AddSignup( Trainer t)
          {
              try
              {
@@ -51,29 +51,29 @@ namespace ServiceLayer.Controllers
                  return BadRequest(e.Message);
              }
          }
-        [HttpPost("Add")] // Trying to create a resource on the server
-        public ActionResult AddMoreTrainer([FromBody] Trainer t)
-        {
-            try
-            {
-                _logic.AddTrainer(t);
-                return Created("Add", t);
-            }
-            catch (SqlException ex)
-            {
-                return BadRequest(ex.Message);
-            }
-            catch (Exception e)
-            {
-                return BadRequest(e.Message);
-            }
-        }
+        //[HttpPost("Add")] // Trying to create a resource on the server
+        //public ActionResult AddMoreTrainer([FromBody] Trainer t)
+        //{
+        //    try
+        //    {
+        //        _logic.AddTrainer(t);
+        //        return Created("Add", t);
+        //    }
+        //    catch (SqlException ex)
+        //    {
+        //        return BadRequest(ex.Message);
+        //    }
+        //    catch (Exception e)
+        //    {
+        //        return BadRequest(e.Message);
+        //    }
+        //}
         [HttpPut("Update")]
-        public ActionResult UpdateTrainer([FromBody] Trainer t)
+        public ActionResult UpdateTrainer( Trainer t)
         {
             try
             {
-                _logic.AddTrainer(t);
+                _logic.UpdateTrainer(t);
                 return Created("Add", t);
             }
             catch (SqlException ex)
@@ -88,11 +88,11 @@ namespace ServiceLayer.Controllers
             
         }
         [HttpDelete("Delete")]
-        public ActionResult Delete([FromBody] Trainer t)
+        public ActionResult Delete(string email)
         {
             try
             {
-               var rest = _logic.RemoveTrainerByName(t);
+                var rest = _logic.RemoveTrainerByName(email);
                     if (rest != null)
                         return Ok(rest);
                     else

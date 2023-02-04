@@ -13,8 +13,8 @@ namespace Bussiness_Logic
         IEnumerable<Models.Trainer> DisplayTrainer();
         // void TrainerSignUp(FluentApi.Entities.Trainer t);
         void AddTrainerSignup(Models.Trainer t);
-        void  AddTrainer(Models.Trainer id);
-        Models.Trainer RemoveTrainerByName(Models.Trainer t);
+       // void  AddTrainer(Models.Trainer id);
+        Models.Trainer RemoveTrainerByName(string email);
         void UpdateTrainer(Models.Trainer t);
     }
 }
