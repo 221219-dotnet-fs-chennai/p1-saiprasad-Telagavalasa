@@ -8,24 +8,35 @@ namespace FluentApi.Entities
 {
     public class CompanyRepo : ICompany<Company>
     {
+        Project1Context context=new Project1Context();
         public void AddCompany(Company company)
         {
-            throw new NotImplementedException();
+            context.Companies.Add(company);
+
+            context.SaveChanges();
         }
 
         public Company DeleteCompany(Company company)
         {
-            throw new NotImplementedException();
+
+            context.Companies.Remove(company);
+
+            context.SaveChanges();
+            return company;
+
         }
 
         public List<Company> GetCompany(int id)
         {
-            throw new NotImplementedException();
+          return context.Companies.Where(c=>c.TrainerId==id).ToList();
         }
 
         public void UpdateCompany(Company company)
         {
-            throw new NotImplementedException();
+
+            context.Companies.Update(company);
+
+            context.SaveChanges();
         }
     }
 }

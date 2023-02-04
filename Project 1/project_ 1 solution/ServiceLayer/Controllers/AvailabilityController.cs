@@ -1,24 +1,22 @@
 ﻿using Bussiness_Logic;
-using FluentApi.Entities;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Data.SqlClient;
-using Models;
 
 namespace ServiceLayer.Controllers
 {
     [Route("api/[Controller]")]
-    public class EducationController : Controller
+    public class AvailabilityController : Controller
     {
-        IEducationLogic logic = new EducationLogic();
+        IAvailabiityLogic logic = new AvailabilityLogic();
 
         [HttpGet("All")]
         public ActionResult Get(string email)
         {
             try
             {
-                var educations = logic.GetEducation(email);
-                if (educations.Count() > 0)
-                    return Ok(educations);
+                var availabilities = logic.GetAvailability(email);
+                if (availabilities.Count() > 0)
+                    return Ok(availabilities);
                 else
                     return BadRequest("No Educations found");
             }
@@ -33,12 +31,12 @@ namespace ServiceLayer.Controllers
         }
 
         [HttpPost("Add")]
-        public ActionResult AddEducation(string email, Models.Education e)
+        public ActionResult AddAvailability(string email, Models.Availability a)
         {
             try
             {
-                logic.AddEducation(email, e);
-                return Created("Add", e);
+                logic.AddAvailability(email, a);
+                return Created("Add", a);
             }
             catch (SqlException ex)
             {
@@ -50,12 +48,12 @@ namespace ServiceLayer.Controllers
             }
         }
         [HttpPut("Update")]
-        public ActionResult UpdateSkills(string email, Models. Education e)
+        public ActionResult UpdateAvailabiity(string email, Models.Availability a)
         {
             try
             {
-                logic.UpdateEducation(email, e);
-                return Created("Updated", e);
+                logic.UpdateAvailability(email, a);
+                return Created("Updated", a);
             }
             catch (SqlException ex)
             {
@@ -69,11 +67,11 @@ namespace ServiceLayer.Controllers
 
         }
         [HttpDelete("Delete")]
-        public ActionResult Delete(string email, string Institutionname)
+        public ActionResult Delete(string email, string avaname)
         {
             try
             {
-                var rest = logic.DeleteEducation(email, Institutionname);
+                var rest = logic.DeleteAvaiability(email, avaname);
                 if (rest != null)
                     return Ok(rest);
                 else
@@ -90,3 +88,6 @@ namespace ServiceLayer.Controllers
         }
     }
 }
+
+    
+
