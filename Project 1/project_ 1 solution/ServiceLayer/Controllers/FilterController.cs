@@ -53,5 +53,49 @@ namespace ServiceLayer.Controllers
             }
 
         }
+
+        [HttpGet("GetTrainerBySkillName")]
+        public ActionResult GetTrainerBySkill(string SkillName)
+        {
+            try
+            {
+                var trainers = logic.GetTrainersBySkillName(SkillName);
+                if (trainers.Count() > 0)
+                    return Ok(trainers);
+                else
+                    return BadRequest("No Trainers found");
+            }
+            catch (SqlException ex)
+            {
+                return BadRequest(ex.Message);
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
+
+        }
+
+        [HttpGet("GetTrainerByExperience")]
+        public ActionResult GetTrainerExperience(int Experience)
+        {
+            try
+            {
+                var trainers = logic.GetTrainersByExperience(Experience);
+                if (trainers.Count() > 0)
+                    return Ok(trainers);
+                else
+                    return BadRequest("No Trainers found");
+            }
+            catch (SqlException ex)
+            {
+                return BadRequest(ex.Message);
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
+
+        }
     }
 }

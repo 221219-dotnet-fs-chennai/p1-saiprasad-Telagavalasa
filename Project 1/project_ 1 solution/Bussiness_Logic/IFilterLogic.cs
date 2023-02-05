@@ -11,5 +11,8 @@ namespace Bussiness_Logic
         // public List<Models.Trainer> GetTrainersByDay(string specifiedDay, List<Models.Trainer> trainers, List<Models.Availability> availabilities);
         IEnumerable<Models.Trainer> GetTrainersByDay(string specifiedDay);
         IEnumerable<Models.Trainer> GetTrainersByHourlyRate(string HourlyRate1 ,string HourlyRate2);
+        IEnumerable<Models.Trainer> GetTrainersBySkillName(string skillname);
+        IEnumerable<Models.Trainer> GetTrainersByExperience(int experience);
+
     }
 }

@@ -23,6 +23,15 @@ namespace FluentApi.Entities
                         select trainer; return query.ToList();
         }
 
+        public List<Trainer> GetTrainersByExperience(int experience, List<Trainer> trainers, List<Company> companies)
+        {
+            var query = from trainer in trainers
+                        join Company in companies on trainer.TrainerId equals Company.TrainerId
+                        where Company.Experience == experience
+                        select trainer; return query.ToList();
+
+        }
+
         public List<Trainer> GetTrainersByHourlyRate(string HourlyRate1, string HourlyRate2, List<Trainer> trainers, List<Availability> availabilities)
         {
             var query = from trainer in trainers
@@ -30,6 +39,14 @@ namespace FluentApi.Entities
                         where availability.HourlyRate == HourlyRate1 || availability.HourlyRate == HourlyRate2
                         select trainer; return query.ToList();
 
+        }
+
+        public List<Trainer> GetTrainersBySkillName(string skillName, List<Trainer> trainers, List<Skill> skills)
+        {
+           var query= from trainer in trainers
+                      join Skill in skills on trainer.TrainerId equals Skill.TrainerId
+                      where Skill.SkillName == skillName
+                      select trainer; return query.ToList();
         }
     }
 }
