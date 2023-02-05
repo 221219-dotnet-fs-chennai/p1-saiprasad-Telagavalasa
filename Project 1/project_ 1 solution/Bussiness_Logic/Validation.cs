@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using FluentApi.Entities;
 
@@ -73,6 +74,9 @@ namespace Bussiness_Logic
         {
             return context.Availabilities.Where(a => a.TrainerId == id && a.Day == name).First();
         }
+
+       
+
 
     }
 }

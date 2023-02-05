@@ -167,6 +167,22 @@ namespace Bussiness_Logic
         }
 
 
+        public static FluentApi.Entities.Availability Map4(Models.Availability a)
+        {
+            return new FluentApi.Entities.Availability()
+            {
+                //TrainerId = (int)a.TrainerId,
+                Day = a.Day,
+                StartTime = a.StartTime,
+                EndTime = a.EndTime,
+                HourlyRate = a.HourlyRate,
+
+            };
+        }
+
+
+
+
 
     }
     }
