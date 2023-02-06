@@ -8,7 +8,7 @@ namespace Models
 {
     public class Skill
     {
-        public int SkillId { get; set; }
+       
 
         public int? TrainerId { get; set; }
 

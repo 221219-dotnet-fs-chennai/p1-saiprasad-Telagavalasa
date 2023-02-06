@@ -17,7 +17,7 @@ namespace Bussiness_Logic
         {
             return new Models.Trainer()
             {
-              // TrainerId=t.TrainerId,
+                TrainerId=t.TrainerId,
                 Email = t.Email,
                 Password=t.Password,
                 Name = t.Name,
@@ -40,7 +40,7 @@ namespace Bussiness_Logic
         {
             return new FluentApi.Entities.Trainer()
             {
-                //TrainerId=t.TrainerId,
+                TrainerId=t.TrainerId,
                 Email = t.Email,
                 Password = t.Password,
                 Name = t.Name,
@@ -52,6 +52,13 @@ namespace Bussiness_Logic
 
             };
         }
+
+      
+
+       
+        
+        //--------------------------------------------------------------------------------------------------------------------------------------------
+
         public static Models.Skill Map(FluentApi.Entities.Skill s)
         {
             return new Models.Skill()
@@ -78,6 +85,12 @@ namespace Bussiness_Logic
         {
             return skills.Select(Map);
         }
+       
+
+            
+        
+     
+        //------------------------------------------------------------------------------------------------------------------
         public static Models.Education Map(FluentApi.Entities.Education e)
         {
             return new Models.Education()
@@ -103,6 +116,12 @@ namespace Bussiness_Logic
         {
             return educations.Select(Map);
         }
+      
+
+         
+      
+      
+//--------------------------------------------------------------------------------------------------------------------------------
         public static Models.Company Map(FluentApi.Entities.Company c)
         {
             return new Models.Company()
@@ -131,6 +150,9 @@ namespace Bussiness_Logic
         {
             return companies.Select(Map);
         }
+       
+
+        //-------------------------------------------------------------------------------------------------------
         public static Models.Availability Map(FluentApi.Entities.Availability a)
         {
             return new Models.Availability()
@@ -144,10 +166,6 @@ namespace Bussiness_Logic
 
             };
         }
-
-
-
-
         public static FluentApi.Entities.Availability Map(Models.Availability a)
         {
             return new FluentApi.Entities.Availability()
@@ -165,6 +183,20 @@ namespace Bussiness_Logic
         {
             return availabilities.Select(Map);
         }
+      
+
+            }
+        }
+
+      
+
+
+
+
+
+
+
+    
 
 
 
@@ -173,6 +205,6 @@ namespace Bussiness_Logic
 
 
 
-    }
-    }
+
+   
 

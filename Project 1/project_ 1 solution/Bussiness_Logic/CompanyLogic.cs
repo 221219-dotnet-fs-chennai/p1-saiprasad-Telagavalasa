@@ -11,12 +11,14 @@ namespace Bussiness_Logic
 {
     public class CompanyLogic : ICompanyLogic
     {
-        private static Project1Context context = new Project1Context();
-        Validation v = new Validation();
+        Project1Context context;
+        Validation v ;
         ICompany<FluentApi.Entities.Company> repo;
-        public CompanyLogic() 
+        public CompanyLogic(Validation _v,Project1Context _context, ICompany<FluentApi.Entities.Company> _repo) 
         {
-            repo = new FluentApi.Entities.CompanyRepo();
+            repo = _repo;
+            v = _v;
+            context= _context;
 
         }
         public void AddCompany(string email, Models.Company c)

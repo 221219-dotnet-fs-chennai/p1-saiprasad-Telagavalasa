@@ -7,12 +7,15 @@ namespace Bussiness_Logic
 {
     public class Logic : ILogic
     {
-        Validation v=new Validation();
-        private static Project1Context context = new Project1Context();
+        Validation v;// new Validation();
+        Project1Context context;
+
         IRepo<FluentApi.Entities.Trainer> repo;
-        public Logic()
+        public Logic(Project1Context _context, IRepo<FluentApi.Entities.Trainer> _repo,Validation _v)
         {
-            repo = new FluentApi.Entities.EFRepo();
+            repo = _repo;
+            context= _context;
+            v = _v;
         }
 
        public void AddTrainerSignup(Models.Trainer t)

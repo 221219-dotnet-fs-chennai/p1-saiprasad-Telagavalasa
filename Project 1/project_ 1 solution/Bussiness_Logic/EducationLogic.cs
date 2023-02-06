@@ -7,12 +7,15 @@ namespace Bussiness_Logic
 {
     public class EducationLogic : IEducationLogic
     {
-        private static Project1Context context = new Project1Context();
-        Validation v = new Validation();
+        Project1Context context ;
+        Validation v ;
         IEducation<FluentApi.Entities.Education> repo;
-        public EducationLogic()
+        public EducationLogic(IEducation<FluentApi.Entities.Education> _repo,Validation _v,Project1Context _context)
         {
-            repo = new FluentApi.Entities.EducationRepo();
+            repo = _repo;
+            v = _v;
+            context= _context;
+
         }
 
 

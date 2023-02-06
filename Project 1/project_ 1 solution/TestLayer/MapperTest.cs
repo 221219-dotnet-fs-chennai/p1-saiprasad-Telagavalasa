@@ -54,10 +54,15 @@ namespace TestLayer
             var avadata= Mapper.Map(availability);  
             Assert.AreEqual(avadata.GetType(),typeof(Models.Availability));
         }
-
+       
 
 
 
     }
 
+
+
+
+
 }
+

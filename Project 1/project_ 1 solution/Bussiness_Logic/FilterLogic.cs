@@ -11,11 +11,12 @@ namespace Bussiness_Logic
 {
     public  class FilterLogic : IFilterLogic
     {
-        private static Project1Context context = new Project1Context();
+        Project1Context context ;
         IFilter<FluentApi.Entities.Trainer> repo;
-        public FilterLogic()
+        public FilterLogic(Project1Context _context ,IFilter<FluentApi.Entities.Trainer> _repo)
         {
-            repo = new FluentApi.Entities.FilterRepo();
+            repo = _repo;
+            context = _context;
         }
 
         public IEnumerable<Models.Trainer> GetTrainersByDay(string specifiedDay)

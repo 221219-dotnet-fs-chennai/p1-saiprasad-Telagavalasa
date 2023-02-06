@@ -9,12 +9,14 @@ namespace Bussiness_Logic
 {
     public  class SkillLogic:ISkillLogic
     {
-        private static Project1Context context = new Project1Context();
-        Validation v= new Validation();
+         Project1Context context;
+        Validation v;
         ISkill<FluentApi.Entities.Skill> repo;
-        public SkillLogic()
+        public SkillLogic(ISkill<FluentApi.Entities.Skill> _repo,Project1Context _context,Validation _v)
         {
-            repo = new FluentApi.Entities.SkillRepo();
+            repo = _repo;
+            context= _context;
+            v = _v;
         }
 
         public IEnumerable<Models.Skill> GetSkills(string email)

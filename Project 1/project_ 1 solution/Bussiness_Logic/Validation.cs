@@ -10,8 +10,13 @@ namespace Bussiness_Logic
 {
     public  class Validation
     {
-        private static Project1Context context = new Project1Context();
-        public static bool CheckTrainerExists(Models.Trainer t)
+        Project1Context context;
+        public Validation(Project1Context _context)
+        {
+            context = _context;
+        }
+
+        public  bool CheckTrainerExists(Models.Trainer t)
         {
             
                 var ans = context.Trainers.Where(item => item.Email == t.Email).First();

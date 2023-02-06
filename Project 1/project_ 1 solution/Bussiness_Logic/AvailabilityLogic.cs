@@ -11,12 +11,14 @@ namespace Bussiness_Logic
 {
     public  class AvailabilityLogic:IAvailabiityLogic
     {
-        private static Project1Context context = new Project1Context();
-        Validation v = new Validation();
+         Project1Context context ;
+        Validation v;
         IAvailability<FluentApi.Entities.Availability> repo;
 
-        public AvailabilityLogic() {
-            repo = new FluentApi.Entities.AvailabilityRepo();
+        public AvailabilityLogic(Validation _v, IAvailability<FluentApi.Entities.Availability> _repo,Project1Context _context) {
+            repo = _repo;
+            v= _v;
+            context = _context;
 
         }
 
