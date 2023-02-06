@@ -34,6 +34,7 @@ namespace ServiceLayer.Controllers
                 return BadRequest(ex.Message);
             }
         }
+
         [HttpPost("AddSignUp")] // Trying to create a resource on the server
          public ActionResult AddSignup( Trainer t)
          {

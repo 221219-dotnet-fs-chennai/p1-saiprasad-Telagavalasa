@@ -1,6 +1,7 @@
 using Bussiness_Logic;
 using FluentApi;
 using FluentApi.Entities;
+using Microsoft.EntityFrameworkCore;
 using Models;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -11,6 +12,8 @@ builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
+var config = builder.Configuration.GetConnectionString("SaiDB");
+builder.Services.AddDbContext<Project1Context>(options=>options.UseSqlServer(config));
 
 builder.Services.AddScoped<ILogic,Logic>();
 builder.Services.AddScoped<IRepo<FluentApi.Entities.Trainer>, EFRepo>();
@@ -33,7 +36,8 @@ builder.Services.AddScoped<IAvailability<FluentApi.Entities.Availability>,Availa
 
 
 builder.Services.AddScoped<IFilterLogic,FilterLogic>();
-//builder.Services.AddScoped<IFilter,FilterRepo>
+builder.Services.AddScoped<Validation, Validation>();
+builder.Services.AddScoped<IFilter<FluentApi.Entities.Trainer>, FilterRepo>();
 
 
 
