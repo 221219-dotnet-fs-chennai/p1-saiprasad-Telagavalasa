@@ -10,7 +10,11 @@ namespace FluentApi.Entities
 {
     public  class SkillRepo:ISkill<Skill>
     {
-        Project1Context context = new Project1Context();
+        Project1Context context;
+        public SkillRepo(Project1Context  _context)
+        {
+            context = _context;
+        }
 
         public void AddSkills( Entities.Skill s)
         {

@@ -11,7 +11,12 @@ namespace FluentApi.Entities
 {
     public class EducationRepo : IEducation<Education>
     {
-        Project1Context context = new Project1Context();
+        Project1Context context;
+        public EducationRepo(Project1Context _context)
+        {
+            context = _context;
+        }
+
         public void AddEducation(Entities.Education e)
         {
             context.Educations.Add(e);

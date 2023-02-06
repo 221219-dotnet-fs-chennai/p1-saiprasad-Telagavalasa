@@ -9,7 +9,12 @@ namespace FluentApi.Entities
 {
     public class AvailabilityRepo : IAvailability<Availability>
     {
-        Project1Context context=new Project1Context();
+        Project1Context context;
+        public AvailabilityRepo(Project1Context _context)
+        {
+            context = _context;
+        }
+
         public void AddAvailability(Availability avail)
         {
             context.Availabilities.Add(avail);

@@ -8,7 +8,12 @@ namespace FluentApi.Entities
 {
     public class CompanyRepo : ICompany<Company>
     {
-        Project1Context context=new Project1Context();
+        Project1Context context;
+        public CompanyRepo(Project1Context _context)
+        {
+            context = _context;
+        }
+
         public void AddCompany(Company company)
         {
             context.Companies.Add(company);

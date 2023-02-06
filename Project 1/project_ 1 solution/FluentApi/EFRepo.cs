@@ -10,7 +10,11 @@ namespace FluentApi.Entities
 
     {
 
-        Project1Context context = new Project1Context();
+        Project1Context context;// = new Project1Context();
+        public EFRepo(Project1Context _context)
+        {
+            context = _context;
+        }
 
         List<Trainer> IRepo<Trainer>.DisplayTrainer()
         {

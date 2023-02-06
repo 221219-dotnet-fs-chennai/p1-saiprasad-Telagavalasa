@@ -9,8 +9,12 @@ namespace FluentApi.Entities
 {
     public class FilterRepo : IFilter<Trainer>
     {
-        Project1Context context = new Project1Context();
-        AvailabilityRepo er=new AvailabilityRepo();
+        Project1Context context;
+        public FilterRepo(Project1Context _context) 
+        {
+            context = _context;
+
+        }
 
         
 
@@ -27,7 +31,7 @@ namespace FluentApi.Entities
         {
             var query = from trainer in trainers
                         join Company in companies on trainer.TrainerId equals Company.TrainerId
-                        where Company.Experience == experience
+                        where Company.Experience >= experience
                         select trainer; return query.ToList();
 
         }
