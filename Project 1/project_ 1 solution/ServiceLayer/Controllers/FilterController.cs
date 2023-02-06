@@ -8,7 +8,11 @@ namespace ServiceLayer.Controllers
     [Route("api/[Controller]")]
     public class FilterController : Controller
     {
-        IFilterLogic logic = new FilterLogic();
+        IFilterLogic logic;
+        public FilterController(IFilterLogic _logic)
+        {
+            logic = _logic;
+        }
 
         [HttpGet("GetTrainerByDay")]
         public ActionResult Get(string Day)

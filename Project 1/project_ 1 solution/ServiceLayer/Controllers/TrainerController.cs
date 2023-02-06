@@ -8,12 +8,11 @@ namespace ServiceLayer.Controllers
     [Route("api/[Controller]")]
     public class TrainerController : Controller
     {
-        ILogic _logic = new Logic();
-        Validation v=new Validation();
-        /*public TrainerController(ILogic logic)
+           private  ILogic _logic ;
+        public TrainerController(ILogic logic)
         {
             _logic = logic;
-        }*/
+        }
         [HttpGet("All")]
         public ActionResult Get()
         {

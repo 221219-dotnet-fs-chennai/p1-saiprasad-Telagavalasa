@@ -7,7 +7,11 @@ namespace ServiceLayer.Controllers
     [Route("api/[Controller]")]
     public class AvailabilityController : Controller
     {
-        IAvailabiityLogic logic = new AvailabilityLogic();
+        IAvailabiityLogic logic;
+        public AvailabilityController(IAvailabiityLogic _logic)
+        {
+            logic= _logic;
+        }
 
         [HttpGet("All")]
         public ActionResult Get(string email)

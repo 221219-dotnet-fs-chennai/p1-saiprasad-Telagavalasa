@@ -57,7 +57,7 @@ namespace Bussiness_Logic
             return new Models.Skill()
             {
               
-                TrainerId= (int)s.TrainerId,
+                TrainerId= s.TrainerId,
                 SkillName = s.SkillName,
                 Proficiency = s.Proficiency
 
@@ -68,7 +68,7 @@ namespace Bussiness_Logic
             return new FluentApi.Entities.Skill()
             {
               
-                TrainerId= (int)s.TrainerId,
+                TrainerId= s.TrainerId,
                 SkillName = s.SkillName,
                 Proficiency = s.Proficiency
 
@@ -83,7 +83,7 @@ namespace Bussiness_Logic
             return new Models.Education()
             {
 
-                TrainerId = (int)e.TrainerId,
+                TrainerId = e.TrainerId,
                 Institution=e.Institution,
                 Degree=e.Degree,
 
@@ -93,7 +93,7 @@ namespace Bussiness_Logic
         {
             return new FluentApi.Entities.Education()
             {
-                TrainerId = (int)e.TrainerId,
+                TrainerId = e.TrainerId,
                 Institution=e.Institution,
                 Degree=e.Degree,
 
@@ -108,7 +108,7 @@ namespace Bussiness_Logic
             return new Models.Company()
             {
 
-                TrainerId = (int)c.TrainerId,
+                TrainerId = c.TrainerId,
                 CmpName= c.CmpName,
                 Role= c.Role,
                 Experience= c.Experience,
@@ -120,7 +120,7 @@ namespace Bussiness_Logic
         {
             return new FluentApi.Entities.Company()
             {
-                TrainerId = (int)c.TrainerId,
+                TrainerId = c.TrainerId,
                 CmpName= c.CmpName,
                 Role= c.Role,
                 Experience= c.Experience,
@@ -136,7 +136,7 @@ namespace Bussiness_Logic
             return new Models.Availability()
             {
 
-                TrainerId = (int)a.TrainerId,
+                TrainerId = a.TrainerId,
                Day= a.Day,
                StartTime= a.StartTime,
                EndTime= a.EndTime,
@@ -152,7 +152,7 @@ namespace Bussiness_Logic
         {
             return new FluentApi.Entities.Availability()
             {
-                TrainerId = (int)a.TrainerId,
+                TrainerId = a.TrainerId,
                 Day=a.Day,
                 StartTime=a.StartTime,
                 EndTime=a.EndTime,
@@ -167,18 +167,7 @@ namespace Bussiness_Logic
         }
 
 
-        public static FluentApi.Entities.Availability Map4(Models.Availability a)
-        {
-            return new FluentApi.Entities.Availability()
-            {
-                //TrainerId = (int)a.TrainerId,
-                Day = a.Day,
-                StartTime = a.StartTime,
-                EndTime = a.EndTime,
-                HourlyRate = a.HourlyRate,
 
-            };
-        }
 
 
 

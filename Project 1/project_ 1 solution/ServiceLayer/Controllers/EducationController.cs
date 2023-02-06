@@ -9,7 +9,11 @@ namespace ServiceLayer.Controllers
     [Route("api/[Controller]")]
     public class EducationController : Controller
     {
-        IEducationLogic logic = new EducationLogic();
+        IEducationLogic logic;
+        public EducationController(IEducationLogic _logic)
+        {
+            logic = _logic;
+        }
 
         [HttpGet("All")]
         public ActionResult Get(string email)

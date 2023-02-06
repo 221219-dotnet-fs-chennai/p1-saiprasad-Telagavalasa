@@ -6,17 +6,17 @@ using System.Threading.Tasks;
 
 namespace Models
 {
-    public interface IRepo<T>
+    public interface IRepo<Trainer>
     {
 
 
-        List<T> DisplayTrainer();
+        List<Trainer> DisplayTrainer();
         //  T Add(T t);
-       void AddTrainerSignup(T trainer);
+       void AddTrainerSignup(Trainer trainer);
        
          //void AddTrainer(T trainer);
-        T RemoveTrainer(string email);
-        void UpdateTrainer(T trainer);
+        Trainer RemoveTrainer(string email);
+        void UpdateTrainer(Trainer trainer);
 
     }   
 }

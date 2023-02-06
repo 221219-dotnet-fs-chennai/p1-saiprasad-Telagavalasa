@@ -14,7 +14,11 @@ namespace ServiceLayer.Controllers
 
 
 
-        ICompanyLogic logic = new CompanyLogic();
+        ICompanyLogic logic;
+        public CompanyController(ICompanyLogic _logic)
+        {
+            logic= _logic;
+        }
 
         [HttpGet("All")]
         public ActionResult Get(string email)

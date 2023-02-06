@@ -9,8 +9,11 @@ namespace ServiceLayer.Controllers
     [Route("api/[Controller]")]
     public class SkillController : Controller
     {
-      ISkillLogic logic=new SkillLogic();
-
+      ISkillLogic logic;
+        public SkillController(ISkillLogic _logic)
+        {
+           logic= _logic;
+        }
         [HttpGet("All")]
         public ActionResult Get(string email)
         {
