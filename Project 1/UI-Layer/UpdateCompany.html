@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    <script src="function.js"></script>
+    <title>Document</title>
+
+    <style>
+        .container{
+            height: 100px; 
+            margin-top: 10%;
+            padding: auto;
+            
+        }
+        body{
+                background-image: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcToyfWzYE6Ssgo7cSahtRTCHdY5kVDZ6YiOCg&usqp=CAU');
+            }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="row justify-content-center">
+          <div class="col-md-6">
+            <form class="form">
+           
+              <div class="form-group">
+                <label for="skill">Company</label>
+                <input type="text" name="cmpName" class="form-control" id="cmpname" placeholder="Enter company Name">
+              </div>
+              <div class="form-group">
+                <label for="skill">Role</label>
+                <input type="text" name="role" class="form-control" id="role" placeholder="Enter your role">
+              </div>
+              <div class="form-group">
+                <label for="skill">Experience</label>
+                <input type="text" name="experience" class="form-control" id="experience" placeholder="Enter  experience">
+              </div>
+           
+              <button type="submit" onclick="UpdateCompany()" class="btn btn-primary">UPDATE</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </form>
+</body>
+</html>

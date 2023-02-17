@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="stylefooter.css">
+    <script src="function.js"></script>
+    <title>Welocme Trainer</title>
+
+    <style>
+        body{
+            background-image: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcToyfWzYE6Ssgo7cSahtRTCHdY5kVDZ6YiOCg&usqp=CAU');
+        }
+    </style>
+</head>
+<body>
+  
+  <div class="navb">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="#">Trainer Online</a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="index.html">Home</a>
+              </li>
+              <li><a class="nav-link active" aria-current="page" href="#">About</a></li>
+            </ul>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false">SearchTrainers</a>
+              <ul class="dropdown-menu">
+                <li><a class="dropdown-item" href="">View Trainer Profile</a></li>
+                <li><a class="dropdown-item" href="FilterBySkillName.html">Search TrainerBy Skill</a></li>
+                <li><a class="dropdown-item" href="filterByDay.html">Search Trainer By AvailableDay</a></li>
+                <li><a class="dropdown-item" href="FilterByExperience.html">Search Trainer By Experience</a></li>
+                <li><a class="dropdown-item" href="FilterByHourlyRate.html">Search Trainer By HourlyPay</a></li>
+                <li><hr class="dropdown-divider"></li>
+                <li><a class="dropdown-item" href="EntireProfile.html">View Trainer FullProfile</a></li>
+              </ul>
+            </li>
+            <button class="btn btn-outline-light mx-2" type="submit" onclick="location.href='signup.html'">Sign Up</button>
+            <button class="btn btn-outline-light" type="submit" onclick="location.href='login.html'">LogIn</button>
+          </div>
+        </div>
+      </nav>
+      </div>
+
+
+    
+    <div class="container mt-5">
+      <div class="row">
+        <div class="col-sm-6 mb-3">
+          <div class="card  bg-secondary">
+            <div class="card-header text-white">
+              Trainer Details
+            </div>
+            <div class="card-body bg-white">
+              <ul>
+                <li><a href="Trainerdetails.html">Display Trainers</a></li>
+                <li><a href="UpdateTrainer.html">Update Tariner Details</a></li>
+                <li><a href="DeleteTrainer.html">Delete Trainer</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-6 mb-3">
+          <div class="card bg-secondary">
+            <div class="card-header text-white">
+              Skills
+            </div>
+            <div class="card-body bg-white">
+              <ul>
+                <li><a href="SkillDetails.html">Display skills</a></li>
+                <li><a href="AddSkill.html">Add Skill</a></li>
+                <li><a href="UpdateSkill.html">Update skill</a></li>
+                <li><a href="DeleteSkill.html">Delete skill</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-6 mb-3">
+          <div class="card bg-secondary">
+            <div class="card-header text-white">
+              Education
+            </div>
+            <div class="card-body bg-white">
+              <ul>
+                <li><a href="EducationDetails.html">Display Education</a></li>
+                <li><a href="AddEducation.html">Add Education</a></li>
+                <li><a href="UpdateEducation.html">Update Education</a></li>
+                <li><a href="DeleteEducation.html">Delete Education</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-6 mb-3">
+          <div class="card bg-secondary">
+            <div class="card-header text-white">
+              Company
+            </div>
+            <div class="card-body bg-white">
+              <ul>
+                <li><a href="CompanyDetails.html">Display Company</a></li>
+                <li><a href="AddCompany.html">Add Company</a></li>
+                <li><a href="UpdateCompany.html">Update Company</a></li>
+                <li><a href="DeleteCompany.html">Delete Company</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-6 mb-3">
+          <div class="card bg-secondary">
+            <div class="card-header text-white">
+              Availability
+            </div>
+            <div class="card-body bg-white">
+              <ul>
+                <li><a href="Availabilitydetails.html">Display Trainer Availability</a></li>
+                <li><a href="AddAvailability.html">Add Trainer Availability</a></li>
+                <li><a href="UpdateAvailability.html">Update Trainer Availability</a></li>
+                <li><a href="DeleteAvailabiity.html">Delete Trainer Availability</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+  </body>
+
+  <footer id="footer" class="footer-1">
+    <div class="main-footer widgets-dark typo-light">
+    <div class="container">
+    <div class="row">
+    
+      <div class="col-xs-12 col-sm-6 col-md-3">
+    <div class="widget subscribe no-box">
+    <h5 class="widget-title">Online Trainer<span></span></h5>
+    <p>An online tutor is an educator who conducts lessons over the internet that can help students enhance their abilities in a specific subject. </p>
+    </div>
+    </div>
+    
+      
+    <div class="col-xs-12 col-sm-6 col-md-3">
+    <div class="widget no-box">
+    <h5 class="widget-title">Quick Links<span></span></h5>
+    <ul class="thumbnail-widget">
+    <li>
+    <div class="thumb-content"><a href="#.">&nbsp;Get Started</a></div> 
+    </li>
+    <li>
+    <div class="thumb-content"><a href="#.">&nbsp;Top Trainers</a></div> 
+    </li>
+    <li>
+    </ul>
+    </div>
+    </div>
+    
+      
+    
+          <div class="col-xs-12 col-sm-6 col-md-3">
+    <div class="widget no-box">
+    <h5 class="widget-title">Follow up<span></span></h5>
+                <a href=""> <i class="fa fa-facebook" > </i> </a>
+                <a href="#"> <i class="fa fa-twitter"> </i> </a>
+                <a href="#"> <i class="fa fa-youtube"> </i> </a>
+    </div>
+    </div>
+    <br>
+      <br>
+    
+    
+    <div class="col-xs-12 col-sm-6 col-md-3">
+    <div class="widget no-box">
+    <h5 class="widget-title">Any queries @Contact Us<span></span></h5>
+                <p>Traineronline@gmail.com</p>
+      <div class="emailfield">
+    <input type="text" name="email" value="Email">
+    <input name="uri" type="hidden" value="arabiantheme">
+    <input name="loc" type="hidden" value="en_US">
+    <input class="submitbutton ripplelink" type="submit" value="Subscribe">
+    </form>  
+    </div>
+    </div>
+    
+    </div>
+    </div>
+    </div>
+      
+    <div class="footer-copyright">
+    <div class="container">
+    <div class="row">
+    <div class="col-md-12 text-center">
+    <p>Copyright Trainer Online © 2023. All rights reserved.</p>
+    </div>
+    </div>
+    </div>
+    </div>
+    </footer>
+
+
+</html>
+
+    
+
+
+
+  
