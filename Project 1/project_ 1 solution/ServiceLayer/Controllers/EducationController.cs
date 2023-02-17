@@ -16,7 +16,7 @@ namespace ServiceLayer.Controllers
         }
 
         [HttpGet("All")]
-        public ActionResult Get(string email)
+        public ActionResult Get([FromHeader] string email)
         {
             try
             {
@@ -37,7 +37,7 @@ namespace ServiceLayer.Controllers
         }
 
         [HttpPost("Add")]
-        public ActionResult AddEducation(string email, Models.Education e)
+        public ActionResult AddEducation([FromHeader]string email,[FromBody] Models.Education e)
         {
             try
             {
@@ -54,7 +54,7 @@ namespace ServiceLayer.Controllers
             }
         }
         [HttpPut("Update")]
-        public ActionResult UpdateSkills(string email, Models. Education e)
+        public ActionResult UpdateSkills([FromHeader] string email, [FromBody] Models.Education e)
         {
             try
             {
@@ -73,7 +73,7 @@ namespace ServiceLayer.Controllers
 
         }
         [HttpDelete("Delete")]
-        public ActionResult Delete(string email, string Institutionname)
+        public ActionResult Delete([FromHeader]string email,[FromHeader] string Institutionname)
         {
             try
             {

@@ -9,9 +9,11 @@ namespace ServiceLayer.Controllers
     public class TrainerController : Controller
     {
            private  ILogic _logic ;
-        public TrainerController(ILogic logic)
+        private Validation _validation;
+        public TrainerController(ILogic logic ,  Validation v)
         {
             _logic = logic;
+            _validation = v;
         }
         [HttpGet("All")]
         public ActionResult Get()
@@ -35,8 +37,23 @@ namespace ServiceLayer.Controllers
             }
         }
 
+        [HttpGet("getTrainerDetails")]
+        public ActionResult Get([FromHeader] string email)
+        {
+
+            var trainer = _logic.GetTrainer(email);
+            if (trainer != null)
+            {
+                return Ok(trainer);
+            }
+            else
+            {
+                return NoContent();
+            }
+        }
+
         [HttpPost("AddSignUp")] // Trying to create a resource on the server
-         public ActionResult AddSignup( Trainer t)
+         public ActionResult AddSignup( [FromBody] Trainer t)
          {
                 try
                 {
@@ -54,8 +71,34 @@ namespace ServiceLayer.Controllers
            
          }
 
+        [HttpGet("Login")] // Trying to create a resource on the server
+        public ActionResult AddLogin(string email,string password)
+        {
+            try
+            {
+               var ans = _validation.CheckTrainerExists(email,password);
+                if (ans == true)
+                {
+                    return Ok(" Login Sucessfull");
+                }
+                else
+                {
+                    return Ok("Login failed Please try again!");
+                }
+            }
+            catch (SqlException ex)
+            {
+                return BadRequest(ex.Message);
+            }
+            catch (Exception e)
+            {
+                return BadRequest(e.Message);
+            }
+
+        }
+
         [HttpPut("Update")]
-        public ActionResult UpdateTrainer( Trainer t)
+        public ActionResult UpdateTrainer([FromBody] Trainer t)
         {
             try
             {
@@ -74,7 +117,7 @@ namespace ServiceLayer.Controllers
             
         }
         [HttpDelete("Delete")]
-        public ActionResult Delete(string email)
+        public ActionResult Delete([FromHeader]string email)
         {
             try
             {

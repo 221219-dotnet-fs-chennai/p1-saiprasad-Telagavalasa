@@ -21,7 +21,7 @@ namespace ServiceLayer.Controllers
         }
 
         [HttpGet("All")]
-        public ActionResult Get(string email)
+        public ActionResult Get([FromHeader] string email)
         {
             try
             {
@@ -29,7 +29,7 @@ namespace ServiceLayer.Controllers
                 if (companies.Count() > 0)
                     return Ok(companies);
                 else
-                    return BadRequest("No Educations found");
+                    return BadRequest("No Companies found");
             }
             catch (SqlException ex)
             {
@@ -42,7 +42,7 @@ namespace ServiceLayer.Controllers
         }
 
         [HttpPost("Add")]
-        public ActionResult AddCompany(string email, Models.Company c)
+        public ActionResult AddCompany([FromHeader]string email,[FromBody] Models.Company c)
         {
             try
             {
@@ -59,7 +59,7 @@ namespace ServiceLayer.Controllers
             }
         }
         [HttpPut("Update")]
-        public ActionResult UpdateCompany(string email, Models.Company c)
+        public ActionResult UpdateCompany([FromHeader]string email,[FromBody] Models.Company c)
         {
             try
             {
@@ -78,7 +78,7 @@ namespace ServiceLayer.Controllers
 
         }
         [HttpDelete("Delete")]
-        public ActionResult Delete(string email, string cmpname)
+        public ActionResult Delete([FromHeader] string email, [FromHeader] string cmpname)
         {
             try
             {

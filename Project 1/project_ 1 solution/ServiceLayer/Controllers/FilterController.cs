@@ -15,7 +15,7 @@ namespace ServiceLayer.Controllers
         }
 
         [HttpGet("GetTrainerByDay")]
-        public ActionResult Get(string Day)
+        public ActionResult Get([FromHeader ]string Day)
         {
             try
             {
@@ -37,7 +37,7 @@ namespace ServiceLayer.Controllers
         }
 
         [HttpGet("GetTrainerByHourlyRate")]
-        public ActionResult GetTrainer(string HourlyRate1,string HourlyRate2)
+        public ActionResult GetTrainer([FromHeader] string HourlyRate1, [FromHeader]string HourlyRate2)
         {
             try
             {
@@ -59,7 +59,7 @@ namespace ServiceLayer.Controllers
         }
 
         [HttpGet("GetTrainerBySkillName")]
-        public ActionResult GetTrainerBySkill(string SkillName)
+        public ActionResult GetTrainerBySkill([FromHeader]string SkillName)
         {
             try
             {
@@ -81,7 +81,7 @@ namespace ServiceLayer.Controllers
         }
 
         [HttpGet("GetTrainerByExperience")]
-        public ActionResult GetTrainerExperience(int Experience)
+        public ActionResult GetTrainerExperience([FromHeader]int Experience)
         {
             try
             {

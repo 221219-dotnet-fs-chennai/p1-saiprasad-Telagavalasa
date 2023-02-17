@@ -14,7 +14,7 @@ namespace ServiceLayer.Controllers
         }
 
         [HttpGet("All")]
-        public ActionResult Get(string email)
+        public ActionResult Get([FromHeader] string email)
         {
             try
             {
@@ -22,7 +22,7 @@ namespace ServiceLayer.Controllers
                 if (availabilities.Count() > 0)
                     return Ok(availabilities);
                 else
-                    return BadRequest("No Educations found");
+                    return BadRequest("No Availability found");
             }
             catch (SqlException ex)
             {
@@ -35,7 +35,7 @@ namespace ServiceLayer.Controllers
         }
 
         [HttpPost("Add")]
-        public ActionResult AddAvailability(string email, Models.Availability a)
+        public ActionResult AddAvailability([FromHeader] string email, [FromBody] Models.Availability a)
         {
             try
             {
@@ -52,7 +52,7 @@ namespace ServiceLayer.Controllers
             }
         }
         [HttpPut("Update")]
-        public ActionResult UpdateAvailabiity(string email, Models.Availability a)
+        public ActionResult UpdateAvailabiity([FromHeader] string email, [FromBody] Models.Availability a)
         {
             try
             {
@@ -71,11 +71,11 @@ namespace ServiceLayer.Controllers
 
         }
         [HttpDelete("Delete")]
-        public ActionResult Delete(string email, string avaname)
+        public ActionResult Delete([FromHeader] string email, [FromHeader] string avaday)
         {
             try
             {
-                var rest = logic.DeleteAvaiability(email, avaname);
+                var rest = logic.DeleteAvaiability(email, avaday);
                 if (rest != null)
                     return Ok(rest);
                 else

@@ -40,10 +40,17 @@ builder.Services.AddScoped<Validation, Validation>();
 builder.Services.AddScoped<IFilter<FluentApi.Entities.Trainer>, FilterRepo>();
 
 
+var Allowpolicy = "AllowPolicy";
+builder.Services.AddCors(options => options.AddPolicy(Allowpolicy, policy => { policy.AllowAnyOrigin().AllowAnyHeader().AllowAnyMethod(); }));
+
+
+
+
 
 
 
 var app = builder.Build();
+app.UseCors(Allowpolicy);
 
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
