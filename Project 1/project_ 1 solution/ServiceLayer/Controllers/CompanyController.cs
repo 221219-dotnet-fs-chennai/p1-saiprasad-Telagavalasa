@@ -25,6 +25,8 @@ namespace ServiceLayer.Controllers
         {
             try
             {
+                Log.Information("--fetching the comapny details of the trainer--");
+
                 var companies = logic.GetCompany(email);
                 if (companies.Count() > 0)
                     return Ok(companies);
@@ -46,6 +48,8 @@ namespace ServiceLayer.Controllers
         {
             try
             {
+                Log.Information("--Adding company details of  trainer--");
+
                 logic.AddCompany(email, c);
                 return Created("Add", c);
             }
@@ -63,6 +67,8 @@ namespace ServiceLayer.Controllers
         {
             try
             {
+                Log.Information("--Updating the comapny details of trainer--");
+
                 logic.UpdateCompany(email, c);
                 return Created("Updated", c);
             }
@@ -82,6 +88,8 @@ namespace ServiceLayer.Controllers
         {
             try
             {
+                Log.Information("deleting the company details of trainer");
+
                 var rest = logic.DeleteCompany(email, cmpname);
                 if (rest != null)
                     return Ok(rest);

@@ -19,6 +19,8 @@ namespace ServiceLayer.Controllers
         {
             try
             {
+                Log.Information("--Searching trainer on which day avalilable to teach--");
+
                 var trainers = logic.GetTrainersByDay(Day);
                 if (trainers.Count() > 0)
                     return Ok(trainers);
@@ -41,6 +43,8 @@ namespace ServiceLayer.Controllers
         {
             try
             {
+                Log.Information("--search trainer based on hourlyrate--");
+
                 var trainers = logic.GetTrainersByHourlyRate(HourlyRate1,HourlyRate2);
                 if (trainers.Count() > 0)
                     return Ok(trainers);
@@ -63,6 +67,8 @@ namespace ServiceLayer.Controllers
         {
             try
             {
+                Log.Information("--Search trainer by SkillName--");
+
                 var trainers = logic.GetTrainersBySkillName(SkillName);
                 if (trainers.Count() > 0)
                     return Ok(trainers);
@@ -85,6 +91,8 @@ namespace ServiceLayer.Controllers
         {
             try
             {
+                Log.Information("--Search trainer by experience--");
+
                 var trainers = logic.GetTrainersByExperience(Experience);
                 if (trainers.Count() > 0)
                     return Ok(trainers);

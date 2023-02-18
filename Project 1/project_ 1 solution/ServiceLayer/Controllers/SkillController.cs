@@ -19,6 +19,8 @@ namespace ServiceLayer.Controllers
         {
             try
             {
+                Log.Information("--Fetching the skill of Particular Trainer--");
+
                 var skills = logic.GetSkills(email);
                 if (skills.Count() > 0)
                     return Ok(skills);
@@ -40,6 +42,8 @@ namespace ServiceLayer.Controllers
             {
                 try
                 {
+                Log.Information("--Adding Skill of a particular Trainer--");
+
                 logic.AddSkills(email, s);
                     return Created("Add", s);
                 }
@@ -59,6 +63,8 @@ namespace ServiceLayer.Controllers
         {
             try
             {
+                Log.Information("--Updating the skill of particular trainer--");
+
                 logic.UpdateSkill(email,s);
                 return Created("Add", s);
             }
@@ -81,7 +87,9 @@ namespace ServiceLayer.Controllers
         {
             try
             {
-                var rest=logic.DeleteSkill(email,skillname);
+                Log.Information("--Deleting the skill of particular trainer--");
+
+                var rest =logic.DeleteSkill(email,skillname);
                 if (rest != null)
                     return Ok(rest);
                 else

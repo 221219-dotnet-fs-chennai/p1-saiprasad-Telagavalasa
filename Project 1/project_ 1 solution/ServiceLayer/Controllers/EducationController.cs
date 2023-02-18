@@ -20,6 +20,8 @@ namespace ServiceLayer.Controllers
         {
             try
             {
+                Log.Information("--Fetching the education of particular trainer--");
+
                 var educations = logic.GetEducation(email);
                 if (educations.Count() > 0)
                     return Ok(educations);
@@ -41,6 +43,8 @@ namespace ServiceLayer.Controllers
         {
             try
             {
+                Log.Information("--Adding the education details of trainer--");
+
                 logic.AddEducation(email, e);
                 return Created("Add", e);
             }
@@ -58,6 +62,8 @@ namespace ServiceLayer.Controllers
         {
             try
             {
+                Log.Information("--Updating the education details of the trainer--");
+
                 logic.UpdateEducation(email, e);
                 return Created("Updated", e);
             }
@@ -77,6 +83,8 @@ namespace ServiceLayer.Controllers
         {
             try
             {
+                Log.Information("--Deleting the education details of the trainer--");
+
                 var rest = logic.DeleteEducation(email, Institutionname);
                 if (rest != null)
                     return Ok(rest);

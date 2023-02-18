@@ -3,6 +3,7 @@ using Bussiness_Logic;
 using Microsoft.Data.SqlClient;
 using Models;
 
+
 namespace ServiceLayer.Controllers
 {
     [Route("api/[Controller]")]
@@ -16,11 +17,13 @@ namespace ServiceLayer.Controllers
             _validation = v;
         }
         [HttpGet("All")]
+
         public ActionResult Get()
         {
 
             try
             {
+                Log.Information("--Fetchng the list of trainer in Application--");
                 var trainers = _logic.DisplayTrainer();
                 if (trainers.Count() > 0)
                     return Ok(trainers);
@@ -40,6 +43,7 @@ namespace ServiceLayer.Controllers
         [HttpGet("getTrainerDetails")]
         public ActionResult Get([FromHeader] string email)
         {
+            Log.Information("--fectching trainer on particular email--");
 
             var trainer = _logic.GetTrainer(email);
             if (trainer != null)
@@ -57,7 +61,9 @@ namespace ServiceLayer.Controllers
          {
                 try
                 {
-                    _logic.AddTrainerSignup(t);
+                Log.Information("--Trying to Create New Account--");
+
+                _logic.AddTrainerSignup(t);
                     return Created("Add", t);
                 }
                 catch (SqlException ex)
@@ -76,7 +82,9 @@ namespace ServiceLayer.Controllers
         {
             try
             {
-               var ans = _validation.CheckTrainerExists(email,password);
+                Log.Information("----Trying to login into Account-----");
+
+                var ans = _validation.CheckTrainerExists(email,password);
                 if (ans == true)
                 {
                     return Ok(" Login Sucessfull");
@@ -102,6 +110,8 @@ namespace ServiceLayer.Controllers
         {
             try
             {
+                Log.Information("---Updating the personal details---");
+
                 _logic.UpdateTrainer(t);
                 return Created("Add", t);
             }
@@ -121,6 +131,7 @@ namespace ServiceLayer.Controllers
         {
             try
             {
+                Log.Information("--Deleting Account from the Application--");
                 var rest = _logic.RemoveTrainerByName(email);
                     if (rest != null)
                         return Ok(rest);

@@ -18,6 +18,8 @@ namespace ServiceLayer.Controllers
         {
             try
             {
+                Log.Information("--fetching the trainer availability to teach--");
+
                 var availabilities = logic.GetAvailability(email);
                 if (availabilities.Count() > 0)
                     return Ok(availabilities);
@@ -39,6 +41,8 @@ namespace ServiceLayer.Controllers
         {
             try
             {
+                Log.Information("--Adding the Avaliability of trainer for tutoring ---");
+
                 logic.AddAvailability(email, a);
                 return Created("Add", a);
             }
@@ -56,6 +60,8 @@ namespace ServiceLayer.Controllers
         {
             try
             {
+                Log.Information("--Updating the Availabiity of trainer for tutoring--");
+
                 logic.UpdateAvailability(email, a);
                 return Created("Updated", a);
             }
@@ -75,6 +81,8 @@ namespace ServiceLayer.Controllers
         {
             try
             {
+                Log.Information("--Deleting the trainer Availability--");
+
                 var rest = logic.DeleteAvaiability(email, avaday);
                 if (rest != null)
                     return Ok(rest);

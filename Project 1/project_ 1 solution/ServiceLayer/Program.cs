@@ -1,10 +1,21 @@
+
+global using Serilog;
 using Bussiness_Logic;
 using FluentApi;
 using FluentApi.Entities;
 using Microsoft.EntityFrameworkCore;
 using Models;
 
+
 var builder = WebApplication.CreateBuilder(args);
+
+
+// Initialize the logger
+Log.Logger = new LoggerConfiguration()
+        .WriteTo.File(@"../Logs/logFile.txt")
+             .CreateLogger();
+
+Log.Logger.Information("----Program starts----");
 
 // Add services to the container.
 
@@ -39,6 +50,8 @@ builder.Services.AddScoped<IFilterLogic,FilterLogic>();
 builder.Services.AddScoped<Validation, Validation>();
 builder.Services.AddScoped<IFilter<FluentApi.Entities.Trainer>, FilterRepo>();
 
+Log.Logger.Information("Enabling cors to Allow AnyOrigin,AnyMethod,AnyHeader");
+
 
 var Allowpolicy = "AllowPolicy";
 builder.Services.AddCors(options => options.AddPolicy(Allowpolicy, policy => { policy.AllowAnyOrigin().AllowAnyHeader().AllowAnyMethod(); }));
@@ -48,9 +61,14 @@ builder.Services.AddCors(options => options.AddPolicy(Allowpolicy, policy => { p
 
 
 
-
+Log.Logger.Information("Bulid the application");
 var app = builder.Build();
+
+Log.Logger.Information("Enabling CORS By AllowPolicy");
 app.UseCors(Allowpolicy);
+
+
+Log.Logger.Information("Swagger starts and Api Work is going on");
 
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
@@ -65,4 +83,5 @@ app.UseAuthorization();
 
 app.MapControllers();
 
+Log.Logger.Information("Runs the application");
 app.Run();
