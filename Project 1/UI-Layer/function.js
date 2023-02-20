@@ -26,7 +26,7 @@ function Login(){
                localStorage.setItem("ParticularEmail",email) ;
     
         // Make a request to the API endpoint to validate the login credentials
-        fetch(`https://localhost:7108/api/Trainer/Login?email=${email}&password=${pass}`,{
+        fetch(`https://localhost:7108/api/Trainer/Login`,{
           method:'GET',
           headers:{
             'Content-Type':'application/json',
