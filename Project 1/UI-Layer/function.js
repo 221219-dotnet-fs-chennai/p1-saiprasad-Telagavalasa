@@ -51,7 +51,6 @@ function Login(){
         
         
     
-    // <button class="form__button" type="submit" onclick="GetPersonalDetails()">Continue</button>
     
     
 
@@ -710,6 +709,9 @@ fetch('https://localhost:7108/api/Filter/GetTrainerByDay',{
     if(response.ok){
         return response.json();
     }
+    else{
+        alert("No trainer available on this day Please search on other day");
+    }
 })
 .then(data=>{
     data.forEach(element => {
@@ -742,6 +744,9 @@ fetch('https://localhost:7108/api/Filter/GetTrainerBySkillName',{
 .then(response=>{
     if(response.ok){
         return response.json();
+    }
+    else{
+        alert("No trainer found with this skill");
     }
 })
 .then(data=>{
@@ -776,6 +781,9 @@ fetch('https://localhost:7108/api/Filter/GetTrainerByExperience',{
 .then(response=>{
     if(response.ok){
         return response.json();
+    }
+    else{
+        alert("No trainer found with this experience");
     }
 })
 .then(data=>{
@@ -813,6 +821,9 @@ fetch('https://localhost:7108/api/Filter/GetTrainerByHourlyRate',{
 .then(response=>{
     if(response.ok){
         return response.json();
+    }
+    else{
+        alert("no trainer found");
     }
 })
 .then(data=>{

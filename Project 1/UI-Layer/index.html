@@ -26,18 +26,19 @@
               <li class="nav-item">
                 <a class="nav-link active" aria-current="page" href="#">Home</a>
               </li>
-              <li><a class="nav-link active" aria-current="page" href="#">About</a></li>
+              <!-- <li><a class="nav-link active" aria-current="page" href="#">About</a></li> -->
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false">Search Trainers</a>
+                <ul class="dropdown-menu">
+                  <li><a class="dropdown-item" href="FilterBySkillName.html">Search TrainerBy Skill</a></li>
+                  <li><a class="dropdown-item" href="filterByDay.html">Search Trainer By AvailableDay</a></li>
+                  <li><a class="dropdown-item" href="FilterByExperience.html">Search Trainer By Experience</a></li>
+                  <li><a class="dropdown-item" href="FilterByHourlyRate.html">Search Trainer By HourlyPay</a></li>
+                  <li><hr class="dropdown-divider"></li>
             </ul>
-            <li class="nav-item dropdown">
-              <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false">Search Trainers</a>
-              <ul class="dropdown-menu">
-                <li><a class="dropdown-item" href="FilterBySkillName.html">Search TrainerBy Skill</a></li>
-                <li><a class="dropdown-item" href="filterByDay.html">Search Trainer By AvailableDay</a></li>
-                <li><a class="dropdown-item" href="FilterByExperience.html">Search Trainer By Experience</a></li>
-                <li><a class="dropdown-item" href="FilterByHourlyRate.html">Search Trainer By HourlyPay</a></li>
-                <li><hr class="dropdown-divider"></li>
-              
-              </ul>
+            </li></div>
+            
+              <div>
             </li>
             <button class="btn btn-outline-light mx-2" type="submit" onclick="location.href='signup.html'">Sign Up</button>
             <button class="btn btn-outline-light" type="submit" onclick="location.href='login.html'">LogIn</button>
